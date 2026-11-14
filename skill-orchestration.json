@@ -1,0 +1,5317 @@
+{
+  "version": "skill-orchestration-v1",
+  "generatedAt": "2026-11-13T02:29:18.573Z",
+  "total": 216,
+  "stages": [
+    {
+      "key": "support",
+      "label": "平台与工具",
+      "question": "运行环境是否可靠？",
+      "order": 0
+    },
+    {
+      "key": "intake",
+      "label": "事实接入",
+      "question": "数据是否可信？",
+      "order": 1
+    },
+    {
+      "key": "evidence",
+      "label": "事件与信息",
+      "question": "发生了什么？",
+      "order": 2
+    },
+    {
+      "key": "fundamental",
+      "label": "基本面",
+      "question": "质量与估值是否成立？",
+      "order": 3
+    },
+    {
+      "key": "signals",
+      "label": "量化信号",
+      "question": "是否存在统计优势？",
+      "order": 4
+    },
+    {
+      "key": "synthesis",
+      "label": "综合研判",
+      "question": "多空证据如何合成？",
+      "order": 5
+    },
+    {
+      "key": "risk",
+      "label": "风险与回测",
+      "question": "最坏情况能否承受？",
+      "order": 6
+    },
+    {
+      "key": "execution",
+      "label": "审批与执行",
+      "question": "是否允许行动？",
+      "order": 7
+    },
+    {
+      "key": "monitoring",
+      "label": "跟踪与复盘",
+      "question": "何时失效？",
+      "order": 8
+    }
+  ],
+  "stageCounts": {
+    "fundamental": 74,
+    "intake": 12,
+    "signals": 17,
+    "evidence": 30,
+    "synthesis": 27,
+    "risk": 18,
+    "support": 8,
+    "execution": 20,
+    "monitoring": 10
+  },
+  "workflows": [
+    {
+      "key": "stock",
+      "name": "个股联合研判",
+      "steps": [
+        {
+          "stage": "intake",
+          "order": 1,
+          "skills": [
+            "a-stock-data",
+            "data-routing",
+            "openalice-market-data"
+          ]
+        },
+        {
+          "stage": "evidence",
+          "order": 2,
+          "skills": [
+            "eastmoney",
+            "news-pulse",
+            "sentiment-analysis",
+            "corporate-events"
+          ]
+        },
+        {
+          "stage": "fundamental",
+          "order": 3,
+          "skills": [
+            "financial-data",
+            "financial-statement",
+            "quality-screen",
+            "valuation-model"
+          ]
+        },
+        {
+          "stage": "signals",
+          "order": 4,
+          "skills": [
+            "factor-research",
+            "multi-factor",
+            "ml-strategy",
+            "openalice-alice-analysis"
+          ]
+        },
+        {
+          "stage": "synthesis",
+          "order": 5,
+          "skills": [
+            "investment-checklist",
+            "investment-team",
+            "openalice-build-thesis"
+          ]
+        },
+        {
+          "stage": "risk",
+          "order": 6,
+          "skills": [
+            "risk-analysis",
+            "backtest-diagnose",
+            "execution-model"
+          ]
+        },
+        {
+          "stage": "execution",
+          "order": 7,
+          "skills": [
+            "berkshire-thesis-tracker",
+            "openalice-alice-uta"
+          ]
+        },
+        {
+          "stage": "monitoring",
+          "order": 8,
+          "skills": [
+            "thesis-drift",
+            "openalice-retrospective"
+          ]
+        }
+      ],
+      "question": "这家公司现在值不值得研究/持有？"
+    },
+    {
+      "key": "sector",
+      "name": "行业与产业链精选",
+      "steps": [
+        {
+          "stage": "intake",
+          "order": 1,
+          "skills": [
+            "a-stock-data",
+            "data-routing"
+          ]
+        },
+        {
+          "stage": "evidence",
+          "order": 2,
+          "skills": [
+            "openalice-sector-rotation",
+            "sector-rotation",
+            "catalyst-calendar"
+          ]
+        },
+        {
+          "stage": "fundamental",
+          "order": 3,
+          "skills": [
+            "openalice-scan-value-chain",
+            "industry-funnel",
+            "industry-research",
+            "berkshire-bottleneck-hunter"
+          ]
+        },
+        {
+          "stage": "signals",
+          "order": 4,
+          "skills": [
+            "factor-research",
+            "fundamental-filter"
+          ]
+        },
+        {
+          "stage": "synthesis",
+          "order": 5,
+          "skills": [
+            "idea-generation",
+            "sector-overview",
+            "valuation-model"
+          ]
+        },
+        {
+          "stage": "risk",
+          "order": 6,
+          "skills": [
+            "risk-analysis",
+            "correlation-analysis"
+          ]
+        }
+      ],
+      "question": "哪个行业或环节最值得继续挖？"
+    },
+    {
+      "key": "portfolio",
+      "name": "组合体检与再平衡",
+      "steps": [
+        {
+          "stage": "intake",
+          "order": 1,
+          "skills": [
+            "a-stock-data",
+            "data-routing"
+          ]
+        },
+        {
+          "stage": "risk",
+          "order": 2,
+          "skills": [
+            "performance-attribution",
+            "risk-analysis",
+            "correlation-regime",
+            "hedging-strategy"
+          ]
+        },
+        {
+          "stage": "synthesis",
+          "order": 3,
+          "skills": [
+            "portfolio-review",
+            "asset-allocation",
+            "berkshire-thesis-tracker"
+          ]
+        },
+        {
+          "stage": "monitoring",
+          "order": 4,
+          "skills": [
+            "thesis-drift",
+            "trade-journal",
+            "client-report"
+          ]
+        }
+      ],
+      "question": "组合的风险收益是否仍匹配？"
+    },
+    {
+      "key": "quant",
+      "name": "量化研究流水线",
+      "steps": [
+        {
+          "stage": "intake",
+          "order": 1,
+          "skills": [
+            "data-routing",
+            "a-stock-data",
+            "doc-reader"
+          ]
+        },
+        {
+          "stage": "signals",
+          "order": 2,
+          "skills": [
+            "alpha-zoo",
+            "factor-research",
+            "multi-factor",
+            "ml-strategy",
+            "quant-statistics"
+          ]
+        },
+        {
+          "stage": "risk",
+          "order": 3,
+          "skills": [
+            "backtest-diagnose",
+            "execution-model",
+            "risk-analysis"
+          ]
+        },
+        {
+          "stage": "execution",
+          "order": 4,
+          "skills": [
+            "strategy-dev-manager",
+            "strategy-discovery"
+          ]
+        },
+        {
+          "stage": "monitoring",
+          "order": 5,
+          "skills": [
+            "performance-attribution",
+            "openalice-retrospective"
+          ]
+        }
+      ],
+      "question": "一个因子或模型能否进入模拟盘？"
+    },
+    {
+      "key": "event",
+      "name": "事件驱动归因",
+      "steps": [
+        {
+          "stage": "intake",
+          "order": 1,
+          "skills": [
+            "a-stock-data",
+            "data-routing",
+            "web-reader"
+          ]
+        },
+        {
+          "stage": "evidence",
+          "order": 2,
+          "skills": [
+            "market-intel",
+            "news-pulse",
+            "event-driven",
+            "x-research",
+            "social-media-intelligence"
+          ]
+        },
+        {
+          "stage": "synthesis",
+          "order": 3,
+          "skills": [
+            "sentiment-analysis",
+            "corporate-events",
+            "catalyst-calendar"
+          ]
+        },
+        {
+          "stage": "risk",
+          "order": 4,
+          "skills": [
+            "risk-analysis",
+            "openalice-retrospective"
+          ]
+        },
+        {
+          "stage": "monitoring",
+          "order": 5,
+          "skills": [
+            "thesis-drift"
+          ]
+        }
+      ],
+      "question": "异动来自事实变化还是情绪？"
+    },
+    {
+      "key": "execution",
+      "name": "交易提案与人工审批",
+      "steps": [
+        {
+          "stage": "synthesis",
+          "order": 1,
+          "skills": [
+            "openalice-build-thesis",
+            "investment-team"
+          ]
+        },
+        {
+          "stage": "risk",
+          "order": 2,
+          "skills": [
+            "risk-analysis",
+            "execution-model",
+            "backtest-diagnose"
+          ]
+        },
+        {
+          "stage": "execution",
+          "order": 3,
+          "skills": [
+            "openalice-alice-uta",
+            "ai4trade",
+            "tradesync"
+          ]
+        },
+        {
+          "stage": "monitoring",
+          "order": 4,
+          "skills": [
+            "berkshire-thesis-tracker",
+            "openalice-file-delivery"
+          ]
+        }
+      ],
+      "question": "结论能否安全转成待审批动作？"
+    }
+  ],
+  "conflictRules": [
+    {
+      "id": "data-first",
+      "label": "事实优先",
+      "rule": "行情、财务、公告先经过 A-Stock Data 或 data-routing；观点型 skill 不得覆盖原始事实。"
+    },
+    {
+      "id": "risk-veto",
+      "label": "硬风控优先",
+      "rule": "模型健康度、趋势闸门、回撤预算和交易权限拥有否决权。"
+    },
+    {
+      "id": "news-crosscheck",
+      "label": "事件交叉验证",
+      "rule": "新闻、社媒、热榜至少两源一致才进入因果解释；单源消息只作线索。"
+    },
+    {
+      "id": "valuation-context",
+      "label": "估值按场景",
+      "rule": "DCF 用于稳定正现金流；周期、金融、未盈利公司优先相对估值或资产口径。"
+    },
+    {
+      "id": "technical-vote",
+      "label": "技术信号投票",
+      "rule": "K线形态不单独下单，必须与趋势、量价、资金和风险预算合并。"
+    },
+    {
+      "id": "no-double-count",
+      "label": "同组去重",
+      "rule": "同一冲突组只有一个主结论，其他 skill 只做复核或反方证据。"
+    },
+    {
+      "id": "execution-approval",
+      "label": "执行隔离",
+      "rule": "交易类 skill 只生成 PENDING_HUMAN_APPROVAL 提案，不得连接券商或真实下单。"
+    },
+    {
+      "id": "evidence-trace",
+      "label": "全链留痕",
+      "rule": "最终结论必须记录数据时间、模型版本、反方证据和失效条件。"
+    }
+  ],
+  "coverage": {
+    "skills": 216,
+    "staged": 216,
+    "workflowTagged": 216,
+    "canonicalReferenced": 56,
+    "uncovered": []
+  },
+  "skills": {
+    "adr-hshare": {
+      "slug": "adr-hshare",
+      "name": "adr-hshare",
+      "title": "ADR / H-Share / A-Share Cross-Listing Analysis",
+      "group": "intelligence",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "akshare": {
+      "slug": "akshare",
+      "name": "akshare",
+      "title": "A-share daily OHLCV (前复权)",
+      "group": "sources",
+      "stage": "intake",
+      "stageLabel": "事实接入",
+      "role": "事实提供者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "source",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "任务标的或代码、数据源权限",
+      "output": "标准化事实快照与质量标记",
+      "priority": 60
+    },
+    "alpha-zoo": {
+      "slug": "alpha-zoo",
+      "name": "alpha-zoo",
+      "title": "Alpha Zoo",
+      "group": "factors",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "factor_model",
+      "safety": "read_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "ashare-pre-st-filter": {
+      "slug": "ashare-pre-st-filter",
+      "name": "ashare-pre-st-filter",
+      "title": "A 股 ST/*ST 风险预测",
+      "group": "intelligence",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "fundamental_context",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "asset-allocation": {
+      "slug": "asset-allocation",
+      "name": "asset-allocation",
+      "title": "Asset Allocation and Portfolio Optimization",
+      "group": "risk",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "portfolio",
+        "quant",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "portfolio_construction",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "backtest-diagnose": {
+      "slug": "backtest-diagnose",
+      "name": "backtest-diagnose",
+      "title": "Backtest Diagnosis",
+      "group": "risk",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "portfolio",
+        "quant",
+        "execution"
+      ],
+      "authority": "gate",
+      "conflictGroup": "backtest_evidence",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "behavioral-finance": {
+      "slug": "behavioral-finance",
+      "name": "behavioral-finance",
+      "title": "Behavioral Finance Applications",
+      "group": "research",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "news_event",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "bottleneck-hunter": {
+      "slug": "bottleneck-hunter",
+      "name": "bottleneck-hunter",
+      "title": "Supply-Chain Bottleneck Hunter",
+      "group": "research",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "candlestick": {
+      "slug": "candlestick",
+      "name": "candlestick",
+      "title": "Candlestick Pattern Recognition",
+      "group": "factors",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "technical_signal",
+      "safety": "research_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "ccxt": {
+      "slug": "ccxt",
+      "name": "ccxt",
+      "title": "Fetch daily OHLCV",
+      "group": "sources",
+      "stage": "intake",
+      "stageLabel": "事实接入",
+      "role": "事实提供者",
+      "scope": "crypto",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "source",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "任务标的或代码、数据源权限",
+      "output": "标准化事实快照与质量标记",
+      "priority": 60
+    },
+    "chanlun": {
+      "slug": "chanlun",
+      "name": "chanlun",
+      "title": "缠论形态识别",
+      "group": "factors",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "technical_signal",
+      "safety": "research_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "commodity-analysis": {
+      "slug": "commodity-analysis",
+      "name": "commodity-analysis",
+      "title": "Commodity Analysis",
+      "group": "tools",
+      "stage": "support",
+      "stageLabel": "平台与工具",
+      "role": "平台支持",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "derivative_assets",
+      "safety": "research_only",
+      "input": "运行环境与工具配置",
+      "output": "可运行工具与平台状态",
+      "priority": 60
+    },
+    "convertible-bond": {
+      "slug": "convertible-bond",
+      "name": "convertible-bond",
+      "title": "A股可转债分析",
+      "group": "intelligence",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "fundamental_context",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "corporate-events": {
+      "slug": "corporate-events",
+      "name": "corporate-events",
+      "title": "公司事件驱动分析",
+      "group": "intelligence",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "news_event",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "correlation-analysis": {
+      "slug": "correlation-analysis",
+      "name": "correlation-analysis",
+      "title": "Correlation and Cointegration Analysis",
+      "group": "factors",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "gate",
+      "conflictGroup": "risk_budget",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "correlation-regime": {
+      "slug": "correlation-regime",
+      "name": "correlation-regime",
+      "title": "Correlation-Regime Detection and Crisis Attribution",
+      "group": "factors",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "gate",
+      "conflictGroup": "risk_budget",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "credit-analysis": {
+      "slug": "credit-analysis",
+      "name": "credit-analysis",
+      "title": "Credit Analysis Skill — 固收与信用分析",
+      "group": "research",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_methodology",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "cross-market-strategy": {
+      "slug": "cross-market-strategy",
+      "name": "cross-market-strategy",
+      "title": "cross-market-strategy",
+      "group": "tools",
+      "stage": "support",
+      "stageLabel": "平台与工具",
+      "role": "平台支持",
+      "scope": "crypto",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "derivative_assets",
+      "safety": "research_only",
+      "input": "运行环境与工具配置",
+      "output": "可运行工具与平台状态",
+      "priority": 60
+    },
+    "crypto-derivatives": {
+      "slug": "crypto-derivatives",
+      "name": "crypto-derivatives",
+      "title": "Crypto-Derivatives Strategies",
+      "group": "alternative",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "crypto",
+      "workflowTags": [
+        "quant"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "technical_signal",
+      "safety": "research_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "data-routing": {
+      "slug": "data-routing",
+      "name": "data-routing",
+      "title": "Data Routing (Router)",
+      "group": "sources",
+      "stage": "intake",
+      "stageLabel": "事实接入",
+      "role": "事实提供者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "source_of_truth",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "任务标的或代码、数据源权限",
+      "output": "标准化事实快照与质量标记",
+      "priority": 100
+    },
+    "deep-company-series": {
+      "slug": "deep-company-series",
+      "name": "deep-company-series",
+      "title": "Deep-Company Series: An 8-Part Deep Dive on One Company",
+      "group": "research",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "defi-yield": {
+      "slug": "defi-yield",
+      "name": "defi-yield",
+      "title": "DeFi Yield Analysis & Optimization",
+      "group": "alternative",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "crypto",
+      "workflowTags": [
+        "quant"
+      ],
+      "authority": "gate",
+      "conflictGroup": "risk_budget",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "dividend-analysis": {
+      "slug": "dividend-analysis",
+      "name": "dividend-analysis",
+      "title": "Dividend Analysis",
+      "group": "intelligence",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "fundamental_context",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "doc-reader": {
+      "slug": "doc-reader",
+      "name": "doc-reader",
+      "title": "Universal Document Reader",
+      "group": "sources",
+      "stage": "intake",
+      "stageLabel": "事实接入",
+      "role": "事实提供者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "source",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "任务标的或代码、数据源权限",
+      "output": "标准化事实快照与质量标记",
+      "priority": 60
+    },
+    "earnings-forecast": {
+      "slug": "earnings-forecast",
+      "name": "earnings-forecast",
+      "title": "盈利预测与一致预期",
+      "group": "intelligence",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "fundamental_context",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "earnings-revision": {
+      "slug": "earnings-revision",
+      "name": "earnings-revision",
+      "title": "Earnings Revision & Guidance Analysis",
+      "group": "intelligence",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "fundamental_context",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "eastmoney": {
+      "slug": "eastmoney",
+      "name": "eastmoney",
+      "title": "Eastmoney（东方财富）",
+      "group": "sources",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "事实提供者",
+      "scope": "crypto",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "edgar-sec-filings": {
+      "slug": "edgar-sec-filings",
+      "name": "edgar-sec-filings",
+      "title": "SEC EDGAR Filing Analysis",
+      "group": "sources",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "事实提供者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "factor_model",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "elliott-wave": {
+      "slug": "elliott-wave",
+      "name": "elliott-wave",
+      "title": "Elliott Wave Theory",
+      "group": "factors",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "news_event",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "etf-analysis": {
+      "slug": "etf-analysis",
+      "name": "etf-analysis",
+      "title": "ETF 分析 Skill",
+      "group": "intelligence",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "fundamental_context",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "event-driven": {
+      "slug": "event-driven",
+      "name": "event-driven",
+      "title": "Event-Driven Strategy",
+      "group": "intelligence",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "news_event",
+      "safety": "read_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "execution-model": {
+      "slug": "execution-model",
+      "name": "execution-model",
+      "title": "Trade Execution Modeling",
+      "group": "risk",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "portfolio",
+        "quant",
+        "execution"
+      ],
+      "authority": "gate",
+      "conflictGroup": "execution_cost",
+      "safety": "manual_approval_only",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "factor-research": {
+      "slug": "factor-research",
+      "name": "factor-research",
+      "title": "Factor Research Framework",
+      "group": "factors",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "factor_model",
+      "safety": "research_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "financial-statement": {
+      "slug": "financial-statement",
+      "name": "financial-statement",
+      "title": "财报三表解读",
+      "group": "intelligence",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "primary_review",
+      "conflictGroup": "fundamental_quality",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 85
+    },
+    "fund-analysis": {
+      "slug": "fund-analysis",
+      "name": "fund-analysis",
+      "title": "基金分析与筛选",
+      "group": "intelligence",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "fundamental_context",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "fundamental-filter": {
+      "slug": "fundamental-filter",
+      "name": "fundamental-filter",
+      "title": "Fundamental Factor Screening",
+      "group": "intelligence",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "factor_model",
+      "safety": "research_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "geopolitical-risk": {
+      "slug": "geopolitical-risk",
+      "name": "geopolitical-risk",
+      "title": "Geopolitical Risk Analysis",
+      "group": "research",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "gate",
+      "conflictGroup": "risk_budget",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "global-macro": {
+      "slug": "global-macro",
+      "name": "global-macro",
+      "title": "Global Macro Analysis",
+      "group": "research",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "gate",
+      "conflictGroup": "factor_model",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "harmonic": {
+      "slug": "harmonic",
+      "name": "harmonic",
+      "title": "Harmonic Patterns",
+      "group": "factors",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "technical_signal",
+      "safety": "research_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "hedging-strategy": {
+      "slug": "hedging-strategy",
+      "name": "hedging-strategy",
+      "title": "Hedging Strategy Design",
+      "group": "risk",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "portfolio",
+        "quant",
+        "execution"
+      ],
+      "authority": "gate",
+      "conflictGroup": "risk_budget",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "hk-connect-flow": {
+      "slug": "hk-connect-flow",
+      "name": "hk-connect-flow",
+      "title": "Stock Connect Fund Flow Analysis",
+      "group": "intelligence",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "risk_budget",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "ichimoku": {
+      "slug": "ichimoku",
+      "name": "ichimoku",
+      "title": "Ichimoku Kinko Hyo",
+      "group": "factors",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "technical_signal",
+      "safety": "research_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "investor-lenses": {
+      "slug": "investor-lenses",
+      "name": "investor-lenses",
+      "title": "Investor Lenses",
+      "group": "research",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "technical_signal",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "liquidation-heatmap": {
+      "slug": "liquidation-heatmap",
+      "name": "liquidation-heatmap",
+      "title": "Liquidation Heatmap & Level Analysis",
+      "group": "alternative",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "quant"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "alternative_assets",
+      "safety": "read_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "macro-analysis": {
+      "slug": "macro-analysis",
+      "name": "macro-analysis",
+      "title": "Macroeconomic Analysis",
+      "group": "research",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "risk_budget",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "management-deep-dive": {
+      "slug": "management-deep-dive",
+      "name": "management-deep-dive",
+      "title": "Management Deep Dive: Buying a Stock Is Buying a Person",
+      "group": "research",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "risk_budget",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "market-microstructure": {
+      "slug": "market-microstructure",
+      "name": "market-microstructure",
+      "title": "Market Microstructure",
+      "group": "factors",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "minute-analysis": {
+      "slug": "minute-analysis",
+      "name": "minute-analysis",
+      "title": "Minute-Level Data Analysis and Backtesting",
+      "group": "factors",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "crypto",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "gate",
+      "conflictGroup": "technical_signal",
+      "safety": "read_only",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "ml-strategy": {
+      "slug": "ml-strategy",
+      "name": "ml-strategy",
+      "title": "Machine-Learning Predictive Strategy",
+      "group": "factors",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "factor_model",
+      "safety": "read_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "mootdx": {
+      "slug": "mootdx",
+      "name": "mootdx",
+      "title": "Daily OHLCV with a date range (preferred API).",
+      "group": "sources",
+      "stage": "intake",
+      "stageLabel": "事实接入",
+      "role": "事实提供者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "source",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "任务标的或代码、数据源权限",
+      "output": "标准化事实快照与质量标记",
+      "priority": 60
+    },
+    "multi-factor": {
+      "slug": "multi-factor",
+      "name": "multi-factor",
+      "title": "Multi-Factor Cross-Sectional Stock Ranking",
+      "group": "factors",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "factor_model",
+      "safety": "research_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "okx-market": {
+      "slug": "okx-market",
+      "name": "okx-market",
+      "title": "OKX Market",
+      "group": "sources",
+      "stage": "intake",
+      "stageLabel": "事实接入",
+      "role": "事实提供者",
+      "scope": "crypto",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "source",
+      "conflictGroup": "technical_signal",
+      "safety": "read_only",
+      "input": "任务标的或代码、数据源权限",
+      "output": "标准化事实快照与质量标记",
+      "priority": 60
+    },
+    "onchain-analysis": {
+      "slug": "onchain-analysis",
+      "name": "onchain-analysis",
+      "title": "On-Chain Data Analysis",
+      "group": "alternative",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "crypto",
+      "workflowTags": [
+        "quant"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "options-advanced": {
+      "slug": "options-advanced",
+      "name": "options-advanced",
+      "title": "Advanced Options Strategies",
+      "group": "tools",
+      "stage": "support",
+      "stageLabel": "平台与工具",
+      "role": "平台支持",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "technical_signal",
+      "safety": "read_only",
+      "input": "运行环境与工具配置",
+      "output": "可运行工具与平台状态",
+      "priority": 60
+    },
+    "options-payoff": {
+      "slug": "options-payoff",
+      "name": "options-payoff",
+      "title": "Options Payoff — Option P&L Analysis Methodology",
+      "group": "tools",
+      "stage": "support",
+      "stageLabel": "平台与工具",
+      "role": "平台支持",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "derivative_assets",
+      "safety": "research_only",
+      "input": "运行环境与工具配置",
+      "output": "可运行工具与平台状态",
+      "priority": 60
+    },
+    "options-strategy": {
+      "slug": "options-strategy",
+      "name": "options-strategy",
+      "title": "options-strategy",
+      "group": "tools",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "crypto",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant"
+      ],
+      "authority": "gate",
+      "conflictGroup": "backtest_evidence",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "pair-trading": {
+      "slug": "pair-trading",
+      "name": "pair-trading",
+      "title": "Pair Trading Strategy",
+      "group": "factors",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "technical_signal",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "performance-attribution": {
+      "slug": "performance-attribution",
+      "name": "performance-attribution",
+      "title": "Performance Attribution Analysis",
+      "group": "risk",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "portfolio",
+        "quant",
+        "execution"
+      ],
+      "authority": "gate",
+      "conflictGroup": "risk_budget",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "perp-funding-basis": {
+      "slug": "perp-funding-basis",
+      "name": "perp-funding-basis",
+      "title": "Perpetual Funding Rate & Basis Trading",
+      "group": "alternative",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "crypto",
+      "workflowTags": [
+        "quant"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "pine-script": {
+      "slug": "pine-script",
+      "name": "pine-script",
+      "title": "Platform Reference",
+      "group": "risk",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "portfolio",
+        "quant",
+        "execution"
+      ],
+      "authority": "gate",
+      "conflictGroup": "backtest_evidence",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "private-company-research": {
+      "slug": "private-company-research",
+      "name": "private-company-research",
+      "title": "Private-Company Research: Multi-Lens Deep Framework",
+      "group": "research",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "gate",
+      "conflictGroup": "risk_budget",
+      "safety": "read_only",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "quant-statistics": {
+      "slug": "quant-statistics",
+      "name": "quant-statistics",
+      "title": "Quantitative Statistical Methods",
+      "group": "research",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "factor_model",
+      "safety": "research_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "qveris": {
+      "slug": "qveris",
+      "name": "qveris",
+      "title": "QVeris",
+      "group": "sources",
+      "stage": "intake",
+      "stageLabel": "事实接入",
+      "role": "事实提供者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "source",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "任务标的或代码、数据源权限",
+      "output": "标准化事实快照与质量标记",
+      "priority": 60
+    },
+    "regulatory-knowledge": {
+      "slug": "regulatory-knowledge",
+      "name": "regulatory-knowledge",
+      "title": "金融监管知识库",
+      "group": "research",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_methodology",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "report-generate": {
+      "slug": "report-generate",
+      "name": "report-generate",
+      "title": "Professional Research Report Generation",
+      "group": "research",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "gate",
+      "conflictGroup": "risk_budget",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "research-discipline": {
+      "slug": "research-discipline",
+      "name": "research-discipline",
+      "title": "AI Research Bias Self-Check",
+      "group": "research",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_methodology",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "research-goal": {
+      "slug": "research-goal",
+      "name": "research-goal",
+      "title": "Goal-Driven Finance Research",
+      "group": "research",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_methodology",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "risk-analysis": {
+      "slug": "risk-analysis",
+      "name": "risk-analysis",
+      "title": "Risk Measurement and Stress Testing",
+      "group": "risk",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "portfolio",
+        "quant",
+        "execution"
+      ],
+      "authority": "gate",
+      "conflictGroup": "risk_budget",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "seasonal": {
+      "slug": "seasonal",
+      "name": "seasonal",
+      "title": "Seasonal / Calendar Effect Strategy",
+      "group": "factors",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "factor_model",
+      "safety": "read_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "sec-edgar": {
+      "slug": "sec-edgar",
+      "name": "sec-edgar",
+      "title": "SEC EDGAR",
+      "group": "sources",
+      "stage": "intake",
+      "stageLabel": "事实接入",
+      "role": "事实提供者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "source",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "任务标的或代码、数据源权限",
+      "output": "标准化事实快照与质量标记",
+      "priority": 60
+    },
+    "sector-rotation": {
+      "slug": "sector-rotation",
+      "name": "sector-rotation",
+      "title": "行业轮动分析",
+      "group": "intelligence",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "sector_regime",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "sentiment-analysis": {
+      "slug": "sentiment-analysis",
+      "name": "sentiment-analysis",
+      "title": "市场情绪分析",
+      "group": "intelligence",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "news_event",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "shadow-account": {
+      "slug": "shadow-account",
+      "name": "shadow-account",
+      "title": "Shadow Account — 影子账户",
+      "group": "research",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "crypto",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_methodology",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "smc": {
+      "slug": "smc",
+      "name": "smc",
+      "title": "Smart Money Concepts",
+      "group": "factors",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "technical_signal",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "social-media-intelligence": {
+      "slug": "social-media-intelligence",
+      "name": "social-media-intelligence",
+      "title": "Social Media Intelligence",
+      "group": "intelligence",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "event",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "news_event",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "stablecoin-flow": {
+      "slug": "stablecoin-flow",
+      "name": "stablecoin-flow",
+      "title": "Stablecoin Flow Analysis",
+      "group": "alternative",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "crypto",
+      "workflowTags": [
+        "quant"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "alternative_assets",
+      "safety": "research_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "strategy-dev-manager": {
+      "slug": "strategy-dev-manager",
+      "name": "strategy-dev-manager",
+      "title": "Strategy Development Manager",
+      "group": "research",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "technical_signal",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "strategy-discovery": {
+      "slug": "strategy-discovery",
+      "name": "strategy-discovery",
+      "title": "Strategy Discovery",
+      "group": "research",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "backtest_evidence",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "strategy-generate": {
+      "slug": "strategy-generate",
+      "name": "strategy-generate",
+      "title": "strategy-generate",
+      "group": "research",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "gate",
+      "conflictGroup": "backtest_evidence",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "technical-basic": {
+      "slug": "technical-basic",
+      "name": "technical-basic",
+      "title": "Core Technical Indicator Collection",
+      "group": "factors",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "technical_signal",
+      "safety": "read_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "thesis-tracker": {
+      "slug": "thesis-tracker",
+      "name": "thesis-tracker",
+      "title": "Investment Thesis Tracker: Post-Buy Discipline",
+      "group": "research",
+      "stage": "monitoring",
+      "stageLabel": "跟踪与复盘",
+      "role": "跟踪者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "thesis_monitor",
+      "safety": "research_only",
+      "input": "论文红线、持仓与交易记录",
+      "output": "失效条件、复盘与下次检查",
+      "priority": 60
+    },
+    "token-unlock-treasury": {
+      "slug": "token-unlock-treasury",
+      "name": "token-unlock-treasury",
+      "title": "Token Unlock & Treasury Analysis",
+      "group": "alternative",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "crypto",
+      "workflowTags": [
+        "quant"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "technical_signal",
+      "safety": "research_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "trade-journal": {
+      "slug": "trade-journal",
+      "name": "trade-journal",
+      "title": "Trade Journal Analysis",
+      "group": "research",
+      "stage": "monitoring",
+      "stageLabel": "跟踪与复盘",
+      "role": "跟踪者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "thesis_monitor",
+      "safety": "manual_approval_only",
+      "input": "论文红线、持仓与交易记录",
+      "output": "失效条件、复盘与下次检查",
+      "priority": 60
+    },
+    "tushare": {
+      "slug": "tushare",
+      "name": "tushare",
+      "title": "Tushare",
+      "group": "sources",
+      "stage": "intake",
+      "stageLabel": "事实接入",
+      "role": "事实提供者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "source",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "任务标的或代码、数据源权限",
+      "output": "标准化事实快照与质量标记",
+      "priority": 60
+    },
+    "us-etf-flow": {
+      "slug": "us-etf-flow",
+      "name": "us-etf-flow",
+      "title": "US ETF Flow & Sector Breadth Analysis",
+      "group": "tools",
+      "stage": "support",
+      "stageLabel": "平台与工具",
+      "role": "平台支持",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "factor_model",
+      "safety": "read_only",
+      "input": "运行环境与工具配置",
+      "output": "可运行工具与平台状态",
+      "priority": 60
+    },
+    "valuation-model": {
+      "slug": "valuation-model",
+      "name": "valuation-model",
+      "title": "Valuation Methodology",
+      "group": "research",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "primary_review",
+      "conflictGroup": "valuation_method",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 85
+    },
+    "vnpy-export": {
+      "slug": "vnpy-export",
+      "name": "vnpy-export",
+      "title": "vnpy-export",
+      "group": "risk",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "crypto",
+      "workflowTags": [
+        "stock",
+        "portfolio",
+        "quant",
+        "execution"
+      ],
+      "authority": "gate",
+      "conflictGroup": "backtest_evidence",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "volatility": {
+      "slug": "volatility",
+      "name": "volatility",
+      "title": "Volatility Strategy",
+      "group": "factors",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "sector"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "technical_signal",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "web-reader": {
+      "slug": "web-reader",
+      "name": "web-reader",
+      "title": "Web Reading",
+      "group": "sources",
+      "stage": "intake",
+      "stageLabel": "事实接入",
+      "role": "事实提供者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "source",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "任务标的或代码、数据源权限",
+      "output": "标准化事实快照与质量标记",
+      "priority": 60
+    },
+    "yfinance": {
+      "slug": "yfinance",
+      "name": "yfinance",
+      "title": "yfinance",
+      "group": "sources",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "事实提供者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "build_workspace_app": {
+      "slug": "build_workspace_app",
+      "name": "build_workspace_app",
+      "title": "Build and Run OpenBB Workspace Applications",
+      "group": "openbb",
+      "stage": "support",
+      "stageLabel": "平台与工具",
+      "role": "平台支持",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "openbb_platform",
+      "safety": "read_only",
+      "input": "运行环境与工具配置",
+      "output": "可运行工具与平台状态",
+      "priority": 60
+    },
+    "configure_mcp_server": {
+      "slug": "configure_mcp_server",
+      "name": "configure_mcp_server",
+      "title": "Configure and Build the OpenBB MCP Server",
+      "group": "openbb",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "openbb_platform",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "develop_extension": {
+      "slug": "develop_extension",
+      "name": "develop_extension",
+      "title": "Build an OpenBB Platform Extension",
+      "group": "openbb",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "portfolio"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "use_openbb_cli": {
+      "slug": "use_openbb_cli",
+      "name": "use_openbb_cli",
+      "title": "Using the openbb-cli",
+      "group": "openbb",
+      "stage": "support",
+      "stageLabel": "平台与工具",
+      "role": "平台支持",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "openbb_platform",
+      "safety": "research_only",
+      "input": "运行环境与工具配置",
+      "output": "可运行工具与平台状态",
+      "priority": 60
+    },
+    "work_with_server": {
+      "slug": "work_with_server",
+      "name": "work_with_server",
+      "title": "Working With the OpenBB MCP Server",
+      "group": "openbb",
+      "stage": "support",
+      "stageLabel": "平台与工具",
+      "role": "平台支持",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "quant",
+        "portfolio"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "openbb_platform",
+      "safety": "research_only",
+      "input": "运行环境与工具配置",
+      "output": "可运行工具与平台状态",
+      "priority": 60
+    },
+    "stock_analyzer": {
+      "slug": "stock_analyzer",
+      "name": "stock_analyzer",
+      "title": "股票分析器",
+      "group": "dsa",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "dev_workflow",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "analyze-issue": {
+      "slug": "analyze-issue",
+      "name": "analyze-issue",
+      "title": "Analyze Issue",
+      "group": "dsa",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "dev_workflow",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "analyze-pr": {
+      "slug": "analyze-pr",
+      "name": "analyze-pr",
+      "title": "Analyze PR",
+      "group": "dsa",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "dev_workflow",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "fix-issue": {
+      "slug": "fix-issue",
+      "name": "fix-issue",
+      "title": "Fix Issue",
+      "group": "dsa",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "dev_workflow",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "daily-stock-analysis": {
+      "slug": "daily-stock-analysis",
+      "name": "daily-stock-analysis",
+      "title": "daily_stock_analysis",
+      "group": "dsa",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "dev_workflow",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "3-statement-model": {
+      "slug": "3-statement-model",
+      "name": "3-statement-model",
+      "title": "3-Statement Financial Model Template Completion",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "financial_model",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "accrual-schedule": {
+      "slug": "accrual-schedule",
+      "name": "accrual-schedule",
+      "title": "Accrual schedule",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "accounting_control",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "ai-readiness": {
+      "slug": "ai-readiness",
+      "name": "ai-readiness",
+      "title": "Portfolio AI Readiness",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "portfolio_monitoring",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "audit-xls": {
+      "slug": "audit-xls",
+      "name": "audit-xls",
+      "title": "Audit Spreadsheet",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "accounting_control",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "bond-futures-basis": {
+      "slug": "bond-futures-basis",
+      "name": "bond-futures-basis",
+      "title": "Bond Futures Basis Analysis",
+      "group": "fsi",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "bond-relative-value": {
+      "slug": "bond-relative-value",
+      "name": "bond-relative-value",
+      "title": "Bond Relative Value Analysis",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "rates_fixed_income",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "break-trace": {
+      "slug": "break-trace",
+      "name": "break-trace",
+      "title": "Root-cause a break",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "accounting_control",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "buyer-list": {
+      "slug": "buyer-list",
+      "name": "buyer-list",
+      "title": "Buyer List",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "deal_diligence",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "catalyst-calendar": {
+      "slug": "catalyst-calendar",
+      "name": "catalyst-calendar",
+      "title": "Catalyst Calendar",
+      "group": "fsi",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "event_calendar",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "cim-builder": {
+      "slug": "cim-builder",
+      "name": "cim-builder",
+      "title": "CIM Builder",
+      "group": "fsi",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "read_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "clean-data-xls": {
+      "slug": "clean-data-xls",
+      "name": "clean-data-xls",
+      "title": "Clean Data",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "accounting_control",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "client-report": {
+      "slug": "client-report",
+      "name": "client-report",
+      "title": "Client Report",
+      "group": "fsi",
+      "stage": "monitoring",
+      "stageLabel": "跟踪与复盘",
+      "role": "跟踪者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "research_only",
+      "input": "论文红线、持仓与交易记录",
+      "output": "失效条件、复盘与下次检查",
+      "priority": 60
+    },
+    "client-review": {
+      "slug": "client-review",
+      "name": "client-review",
+      "title": "Client Review Prep",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "risk_budget",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "competitive-analysis": {
+      "slug": "competitive-analysis",
+      "name": "competitive-analysis",
+      "title": "Competitive Landscape Mapping",
+      "group": "fsi",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "comps-analysis": {
+      "slug": "comps-analysis",
+      "name": "comps-analysis",
+      "title": "Comparable Company Analysis",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "datapack-builder": {
+      "slug": "datapack-builder",
+      "name": "datapack-builder",
+      "title": "Financial Data Pack Builder",
+      "group": "fsi",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "read_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "dcf-model": {
+      "slug": "dcf-model",
+      "name": "dcf-model",
+      "title": "DCF Model Builder",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "dd-checklist": {
+      "slug": "dd-checklist",
+      "name": "dd-checklist",
+      "title": "Due Diligence Checklist",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "deal_diligence",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "dd-meeting-prep": {
+      "slug": "dd-meeting-prep",
+      "name": "dd-meeting-prep",
+      "title": "Diligence Meeting Prep",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "rates_fixed_income",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "deal-screening": {
+      "slug": "deal-screening",
+      "name": "deal-screening",
+      "title": "Deal Screening",
+      "group": "fsi",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "deal-sourcing": {
+      "slug": "deal-sourcing",
+      "name": "deal-sourcing",
+      "title": "Deal Sourcing",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "professional_research",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "deal-tracker": {
+      "slug": "deal-tracker",
+      "name": "deal-tracker",
+      "title": "Deal Tracker",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "portfolio_monitoring",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "deck-refresh": {
+      "slug": "deck-refresh",
+      "name": "deck-refresh",
+      "title": "Deck Refresh",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "earnings-analysis": {
+      "slug": "earnings-analysis",
+      "name": "earnings-analysis",
+      "title": "Equity Research Earnings Update",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "earnings-preview": {
+      "slug": "earnings-preview",
+      "name": "earnings-preview",
+      "title": "Earnings Preview",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "earnings-preview-beta": {
+      "slug": "earnings-preview-beta",
+      "name": "earnings-preview-single",
+      "title": "Single-Company Earnings Preview",
+      "group": "fsi",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "news_event",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "equity-research": {
+      "slug": "equity-research",
+      "name": "equity-research",
+      "title": "Equity Research Analysis",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "financial-skill-creator": {
+      "slug": "financial-skill-creator",
+      "name": "skill-creator",
+      "title": "Skill Creator",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "professional_research",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "financial-thesis-tracker": {
+      "slug": "financial-thesis-tracker",
+      "name": "thesis-tracker",
+      "title": "Thesis Tracker",
+      "group": "fsi",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "portfolio_monitoring",
+      "safety": "read_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "fixed-income-portfolio": {
+      "slug": "fixed-income-portfolio",
+      "name": "fixed-income-portfolio",
+      "title": "Fixed Income Portfolio Analysis",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "rates_fixed_income",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "funding-digest": {
+      "slug": "funding-digest",
+      "name": "funding-digest",
+      "title": "Weekly Deal Flow Digest",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "fx-carry-trade": {
+      "slug": "fx-carry-trade",
+      "name": "fx-carry-trade",
+      "title": "FX Carry Trade Analysis",
+      "group": "fsi",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "technical_signal",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "gl-recon": {
+      "slug": "gl-recon",
+      "name": "gl-recon",
+      "title": "GL ↔ subledger reconciliation",
+      "group": "fsi",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "ib-check-deck": {
+      "slug": "ib-check-deck",
+      "name": "ib-check-deck",
+      "title": "IB Deck Checker",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "ic-memo": {
+      "slug": "ic-memo",
+      "name": "ic-memo",
+      "title": "Investment Committee Memo",
+      "group": "fsi",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "read_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "idea-generation": {
+      "slug": "idea-generation",
+      "name": "idea-generation",
+      "title": "Idea Generation",
+      "group": "fsi",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "initiating-coverage": {
+      "slug": "initiating-coverage",
+      "name": "initiating-coverage",
+      "title": "Initiating Coverage",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "investment-proposal": {
+      "slug": "investment-proposal",
+      "name": "investment-proposal",
+      "title": "Investment Proposal",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "risk_budget",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "kyc-doc-parse": {
+      "slug": "kyc-doc-parse",
+      "name": "kyc-doc-parse",
+      "title": "Parse the onboarding packet",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "compliance",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "kyc-rules": {
+      "slug": "kyc-rules",
+      "name": "kyc-rules",
+      "title": "Apply the rules grid",
+      "group": "fsi",
+      "stage": "risk",
+      "stageLabel": "风险与回测",
+      "role": "风险守门人",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "gate",
+      "conflictGroup": "risk_budget",
+      "safety": "advisory",
+      "input": "候选组合、成本、回撤预算",
+      "output": "仓位、止损与回测证据",
+      "priority": 95
+    },
+    "lbo-model": {
+      "slug": "lbo-model",
+      "name": "lbo-model",
+      "title": "lbo-model",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "financial_model",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "macro-rates-monitor": {
+      "slug": "macro-rates-monitor",
+      "name": "macro-rates-monitor",
+      "title": "Macroeconomic and Rates Monitor",
+      "group": "fsi",
+      "stage": "monitoring",
+      "stageLabel": "跟踪与复盘",
+      "role": "跟踪者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "rates_fixed_income",
+      "safety": "research_only",
+      "input": "论文红线、持仓与交易记录",
+      "output": "失效条件、复盘与下次检查",
+      "priority": 60
+    },
+    "merger-model": {
+      "slug": "merger-model",
+      "name": "merger-model",
+      "title": "Merger Model",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "risk_budget",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "model-update": {
+      "slug": "model-update",
+      "name": "model-update",
+      "title": "Model Update",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "morning-note": {
+      "slug": "morning-note",
+      "name": "morning-note",
+      "title": "Morning Note",
+      "group": "fsi",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "nav-tieout": {
+      "slug": "nav-tieout",
+      "name": "nav-tieout",
+      "title": "NAV tie-out",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "accounting_control",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "option-vol-analysis": {
+      "slug": "option-vol-analysis",
+      "name": "option-vol-analysis",
+      "title": "Option Volatility Analysis",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "technical_signal",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "pitch-deck": {
+      "slug": "pitch-deck",
+      "name": "pitch-deck",
+      "title": "Populating Investment Banking Pitch Deck Templates",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "portfolio-monitoring": {
+      "slug": "portfolio-monitoring",
+      "name": "portfolio-monitoring",
+      "title": "Portfolio Monitoring",
+      "group": "fsi",
+      "stage": "monitoring",
+      "stageLabel": "跟踪与复盘",
+      "role": "跟踪者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "compliance",
+      "safety": "research_only",
+      "input": "论文红线、持仓与交易记录",
+      "output": "失效条件、复盘与下次检查",
+      "priority": 60
+    },
+    "ppt-template-creator": {
+      "slug": "ppt-template-creator",
+      "name": "ppt-template-creator",
+      "title": "PPT Template Creator",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "document_tooling",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "pptx-author": {
+      "slug": "pptx-author",
+      "name": "pptx-author",
+      "title": "pptx-author",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "document_tooling",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "process-letter": {
+      "slug": "process-letter",
+      "name": "process-letter",
+      "title": "Process Letter",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "professional_research",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "returns-analysis": {
+      "slug": "returns-analysis",
+      "name": "returns-analysis",
+      "title": "Returns Analysis",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "roll-forward": {
+      "slug": "roll-forward",
+      "name": "roll-forward",
+      "title": "Roll-forward",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "accounting_control",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "sector-overview": {
+      "slug": "sector-overview",
+      "name": "sector-overview",
+      "title": "Sector Overview",
+      "group": "fsi",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "strip-profile": {
+      "slug": "strip-profile",
+      "name": "fsi-strip-profile",
+      "title": "fsi-strip-profile",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "professional_research",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "swap-curve-strategy": {
+      "slug": "swap-curve-strategy",
+      "name": "swap-curve-strategy",
+      "title": "Swap Curve Strategy Analysis",
+      "group": "fsi",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "tear-sheet": {
+      "slug": "tear-sheet",
+      "name": "tear-sheet",
+      "title": "Financial Tear Sheet Generator",
+      "group": "fsi",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "read_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "teaser": {
+      "slug": "teaser",
+      "name": "teaser",
+      "title": "Teaser",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "global",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "unit-economics": {
+      "slug": "unit-economics",
+      "name": "unit-economics",
+      "title": "Unit Economics Analysis",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "deal_diligence",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "value-creation-plan": {
+      "slug": "value-creation-plan",
+      "name": "value-creation-plan",
+      "title": "Value Creation Plan",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "professional_research",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "variance-commentary": {
+      "slug": "variance-commentary",
+      "name": "variance-commentary",
+      "title": "Variance commentary",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "verify": {
+      "slug": "verify",
+      "name": "verify",
+      "title": "Verifying claude-for-msft-365-install",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "accounting_control",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "xlsx-author": {
+      "slug": "xlsx-author",
+      "name": "xlsx-author",
+      "title": "xlsx-author",
+      "group": "fsi",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "document_tooling",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "a-share-runtime-data-access": {
+      "slug": "a-share-runtime-data-access",
+      "name": "a-share-runtime-data-access",
+      "title": "A-share Runtime Data Access",
+      "group": "ta",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "ifind-repilot-finance-data-search": {
+      "slug": "ifind-repilot-finance-data-search",
+      "name": "ifind-repilot-finance-data-search",
+      "title": "ifind-repilot-finance-data-search",
+      "group": "ta",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "multi_agent_runtime",
+      "safety": "read_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "ifind-repilot-news-search": {
+      "slug": "ifind-repilot-news-search",
+      "name": "ifind-repilot-news-search",
+      "title": "方式一：日期参数在前",
+      "group": "ta",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "news_event",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "nanobot-agent-design": {
+      "slug": "nanobot-agent-design",
+      "name": "nanobot-agent-design",
+      "title": "Nanobot Agent Design",
+      "group": "ta",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "multi_agent_runtime",
+      "safety": "read_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "stock-cyq-analyzer": {
+      "slug": "stock-cyq-analyzer",
+      "name": "stock-cyq-analyzer",
+      "title": "CYQ 筹码分布分析工具",
+      "group": "ta",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "multi_agent_runtime",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "prompt-governance": {
+      "slug": "prompt-governance",
+      "name": "prompt-governance",
+      "title": "Prompt Governance",
+      "group": "ta",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "multi_agent_runtime",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "dcf": {
+      "slug": "dcf",
+      "name": "dcf-valuation",
+      "title": "DCF Valuation Skill",
+      "group": "dexter",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "write-memo": {
+      "slug": "write-memo",
+      "name": "write-memo",
+      "title": "Write Investment Memo Skill",
+      "group": "dexter",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "risk_budget",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "x-research": {
+      "slug": "x-research",
+      "name": "x-research",
+      "title": "X Research Skill",
+      "group": "dexter",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "news_event",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "ai4trade": {
+      "slug": "ai4trade",
+      "name": "ai-trader",
+      "title": "AI-Trader",
+      "group": "aitrader",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event",
+        "execution"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "copytrade": {
+      "slug": "copytrade",
+      "name": "ai-trader-copytrade",
+      "title": "AI-Trader Copy Trading Skill",
+      "group": "aitrader",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event",
+        "execution"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "heartbeat": {
+      "slug": "heartbeat",
+      "name": "ai-trader-heartbeat",
+      "title": "AI-Trader Heartbeat",
+      "group": "aitrader",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event",
+        "execution"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "market-intel": {
+      "slug": "market-intel",
+      "name": "market-intel",
+      "title": "Market Intel",
+      "group": "aitrader",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "news_event",
+      "safety": "manual_approval_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "polymarket": {
+      "slug": "polymarket",
+      "name": "polymarket-public-data",
+      "title": "Polymarket Public Data",
+      "group": "aitrader",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "crypto",
+      "workflowTags": [
+        "stock",
+        "event",
+        "execution"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "tradesync": {
+      "slug": "tradesync",
+      "name": "ai-trader-tradesync",
+      "title": "AI-Trader Trade Sync Skill",
+      "group": "aitrader",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "event",
+        "execution"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "berkshire-bottleneck-hunter": {
+      "slug": "berkshire-bottleneck-hunter",
+      "name": "bottleneck-hunter",
+      "title": "供应链瓶颈猎手：AI驱动的全球产业链瓶颈套利",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "value_chain",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "berkshire-deep-company-series": {
+      "slug": "berkshire-deep-company-series",
+      "name": "deep-company-series",
+      "title": "看懂XX公司（深度公司系列）：3-8 篇长文拆一家公司",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_support",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "dyp-ask": {
+      "slug": "dyp-ask",
+      "name": "dyp-ask",
+      "title": "段永平问答：以他的方式思考",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_support",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "earnings-review": {
+      "slug": "earnings-review",
+      "name": "earnings-review",
+      "title": "财报精读：一手资料深度解读",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_support",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "earnings-team": {
+      "slug": "earnings-team",
+      "name": "earnings-team",
+      "title": "财报精读团队：四大师并行解读 + 公众号发布",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_support",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "era-alpha": {
+      "slug": "era-alpha",
+      "name": "era-alpha",
+      "title": "时代α捕手：高增长核心资产的识别-验证-持有框架",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_support",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "financial-data": {
+      "slug": "financial-data",
+      "name": "financial-data",
+      "title": "财务数据获取与交叉验证规范",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "primary_review",
+      "conflictGroup": "financial_data",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 85
+    },
+    "income-investment": {
+      "slug": "income-investment",
+      "name": "income-investment",
+      "title": "Income Investment: Durable and Opportunistic Distribution Analysis",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_support",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "industry-funnel": {
+      "slug": "industry-funnel",
+      "name": "industry-funnel",
+      "title": "行业漏斗筛选：从全市场到 3 家的价值投资精选流程",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "value_chain",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "industry-research": {
+      "slug": "industry-research",
+      "name": "industry-research",
+      "title": "行业投资研究：产业链全景扫描 + 四大师个股分析框架",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "value_chain",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "investment-checklist": {
+      "slug": "investment-checklist",
+      "name": "investment-checklist",
+      "title": "巴菲特价值投资买入前 Checklist",
+      "group": "berkshire",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "thesis_review",
+      "safety": "read_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "investment-memo-craft": {
+      "slug": "investment-memo-craft",
+      "name": "investment-memo-craft",
+      "title": "Investment Memo Craft",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "valuation_method",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "investment-research": {
+      "slug": "investment-research",
+      "name": "investment-research",
+      "title": "投资研究：巴菲特-芒格-段永平-李录 四大师综合分析框架",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_support",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "investment-team": {
+      "slug": "investment-team",
+      "name": "investment-team",
+      "title": "投研团队：四角色并行分析框架",
+      "group": "berkshire",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "thesis_review",
+      "safety": "read_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "berkshire-management-deep-dive": {
+      "slug": "berkshire-management-deep-dive",
+      "name": "management-deep-dive",
+      "title": "管理层纵深研究：买股票就是买人",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_support",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "news-pulse": {
+      "slug": "news-pulse",
+      "name": "news-pulse",
+      "title": "公司新闻脉搏：股价异动快速归因团队",
+      "group": "berkshire",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "news_event",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "portfolio-review": {
+      "slug": "portfolio-review",
+      "name": "portfolio-review",
+      "title": "组合管理：从\"研究公司\"到\"管理组合\"",
+      "group": "berkshire",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "thesis_review",
+      "safety": "read_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "berkshire-private-company-research": {
+      "slug": "berkshire-private-company-research",
+      "name": "private-company-research",
+      "title": "未上市公司研究：多Agent并行深度研究框架",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_support",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "quality-screen": {
+      "slug": "quality-screen",
+      "name": "quality-screen",
+      "title": "去劣筛选：7条指标快速排除非一流公司",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "primary_review",
+      "conflictGroup": "fundamental_quality",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 85
+    },
+    "thesis-drift": {
+      "slug": "thesis-drift",
+      "name": "thesis-drift",
+      "title": "投资论文漂移检测：分清事实变化与措辞变化",
+      "group": "berkshire",
+      "stage": "monitoring",
+      "stageLabel": "跟踪与复盘",
+      "role": "跟踪者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "thesis_monitor",
+      "safety": "read_only",
+      "input": "论文红线、持仓与交易记录",
+      "output": "失效条件、复盘与下次检查",
+      "priority": 60
+    },
+    "berkshire-thesis-tracker": {
+      "slug": "berkshire-thesis-tracker",
+      "name": "thesis-tracker",
+      "title": "投资论文追踪：买入后的纪律系统",
+      "group": "berkshire",
+      "stage": "monitoring",
+      "stageLabel": "跟踪与复盘",
+      "role": "跟踪者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "thesis_monitor",
+      "safety": "read_only",
+      "input": "论文红线、持仓与交易记录",
+      "output": "失效条件、复盘与下次检查",
+      "priority": 60
+    },
+    "wechat-article": {
+      "slug": "wechat-article",
+      "name": "wechat-article",
+      "title": "微信公众号文章：作者-编辑-读者三Agent协作",
+      "group": "berkshire",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_support",
+      "safety": "read_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "a-stock-data": {
+      "slug": "a-stock-data",
+      "name": "a-stock-data",
+      "title": "A股全栈数据工具包 V3.10.3",
+      "group": "astock",
+      "stage": "intake",
+      "stageLabel": "事实接入",
+      "role": "事实提供者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event"
+      ],
+      "authority": "source_of_truth",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "任务标的或代码、数据源权限",
+      "output": "标准化事实快照与质量标记",
+      "priority": 100
+    },
+    "openalice-alice": {
+      "slug": "openalice-alice",
+      "name": "openalice-alice",
+      "title": "Research & collaboration — `alice`",
+      "group": "openalice",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_workflow",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "openalice-alice-analysis": {
+      "slug": "openalice-alice-analysis",
+      "name": "openalice-alice-analysis",
+      "title": "`alice analysis` — Quant Calculator (v2)",
+      "group": "openalice",
+      "stage": "signals",
+      "stageLabel": "量化信号",
+      "role": "信号生成者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "quant_snapshot",
+      "safety": "research_only",
+      "input": "价格/成交量/财务面板",
+      "output": "因子或模型评分与覆盖率",
+      "priority": 60
+    },
+    "openalice-alice-uta": {
+      "slug": "openalice-alice-uta",
+      "name": "openalice-alice-uta",
+      "title": "Trading — `alice-uta`",
+      "group": "openalice",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "openalice-build-thesis": {
+      "slug": "openalice-build-thesis",
+      "name": "openalice-build-thesis",
+      "title": "Build a two-sided thesis on a name",
+      "group": "openalice",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "thesis_review",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "openalice-delegate-autoquant": {
+      "slug": "openalice-delegate-autoquant",
+      "name": "openalice-delegate-autoquant",
+      "title": "Delegate quantitative research to AutoQuant",
+      "group": "openalice",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_workflow",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "openalice-file-delivery": {
+      "slug": "openalice-file-delivery",
+      "name": "openalice-file-delivery",
+      "title": "Send files in a reply",
+      "group": "openalice",
+      "stage": "monitoring",
+      "stageLabel": "跟踪与复盘",
+      "role": "跟踪者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "report_output",
+      "safety": "research_only",
+      "input": "论文红线、持仓与交易记录",
+      "output": "失效条件、复盘与下次检查",
+      "priority": 60
+    },
+    "openalice-market-data": {
+      "slug": "openalice-market-data",
+      "name": "openalice-market-data",
+      "title": "Market data and charts",
+      "group": "openalice",
+      "stage": "intake",
+      "stageLabel": "事实接入",
+      "role": "事实提供者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "source",
+      "conflictGroup": "data_access",
+      "safety": "read_only",
+      "input": "任务标的或代码、数据源权限",
+      "output": "标准化事实快照与质量标记",
+      "priority": 60
+    },
+    "openalice-opencli-reader": {
+      "slug": "openalice-opencli-reader",
+      "name": "openalice-opencli-reader",
+      "title": "opencli (optional, read-only)",
+      "group": "openalice",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_workflow",
+      "safety": "read_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    },
+    "openalice-retrospective": {
+      "slug": "openalice-retrospective",
+      "name": "openalice-retrospective",
+      "title": "Retrospective / Time-Machine analysis",
+      "group": "openalice",
+      "stage": "monitoring",
+      "stageLabel": "跟踪与复盘",
+      "role": "跟踪者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "thesis_monitor",
+      "safety": "research_only",
+      "input": "论文红线、持仓与交易记录",
+      "output": "失效条件、复盘与下次检查",
+      "priority": 60
+    },
+    "openalice-scan-value-chain": {
+      "slug": "openalice-scan-value-chain",
+      "name": "openalice-scan-value-chain",
+      "title": "Scan a theme by its value chain",
+      "group": "openalice",
+      "stage": "fundamental",
+      "stageLabel": "基本面",
+      "role": "质量审查者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "value_chain",
+      "safety": "research_only",
+      "input": "财务三表、估值、行业信息",
+      "output": "质量、估值与安全边际",
+      "priority": 60
+    },
+    "openalice-sector-rotation": {
+      "slug": "openalice-sector-rotation",
+      "name": "openalice-sector-rotation",
+      "title": "Sector rotation — what's moving and where money is going",
+      "group": "openalice",
+      "stage": "evidence",
+      "stageLabel": "事件与信息",
+      "role": "解释者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "sector_regime",
+      "safety": "research_only",
+      "input": "行情窗口、新闻/公告/事件流",
+      "output": "事件时间线与因果假设",
+      "priority": 60
+    },
+    "openalice-self-scheduling": {
+      "slug": "openalice-self-scheduling",
+      "name": "openalice-self-scheduling",
+      "title": "Issues & self-scheduling — `.alice/issues/<id>.md`",
+      "group": "openalice",
+      "stage": "monitoring",
+      "stageLabel": "跟踪与复盘",
+      "role": "跟踪者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_workflow",
+      "safety": "research_only",
+      "input": "论文红线、持仓与交易记录",
+      "output": "失效条件、复盘与下次检查",
+      "priority": 60
+    },
+    "openalice-traderhub": {
+      "slug": "openalice-traderhub",
+      "name": "openalice-traderhub",
+      "title": "`traderhub` — low-frequency market data",
+      "group": "openalice",
+      "stage": "execution",
+      "stageLabel": "审批与执行",
+      "role": "提案者",
+      "scope": "ashare",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "proposal_only",
+      "conflictGroup": "order_execution",
+      "safety": "manual_approval_only",
+      "input": "已审论文、风险预算、审批状态",
+      "output": "待人工审批提案，不触达券商",
+      "priority": 60
+    },
+    "openalice-workspace-manager": {
+      "slug": "openalice-workspace-manager",
+      "name": "openalice-workspace-manager",
+      "title": "Workspace Manager",
+      "group": "openalice",
+      "stage": "synthesis",
+      "stageLabel": "综合研判",
+      "role": "综合研究者",
+      "scope": "tool",
+      "workflowTags": [
+        "stock",
+        "sector",
+        "portfolio",
+        "quant",
+        "event",
+        "execution"
+      ],
+      "authority": "advisor",
+      "conflictGroup": "research_workflow",
+      "safety": "research_only",
+      "input": "事实证据、因子分、反方问题",
+      "output": "多空论文、置信度与待验证问题",
+      "priority": 60
+    }
+  }
+}

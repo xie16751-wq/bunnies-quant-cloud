@@ -1,0 +1,6 @@
+Geist and Geist Mono
+Source: Google Fonts
+Geist: https://fonts.google.com/specimen/Geist
+Geist Mono: https://fonts.google.com/specimen/Geist+Mono
+License: SIL Open Font License 1.1
+Localized for Bunnies量研.
