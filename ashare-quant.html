@@ -795,8 +795,36 @@
   .co-kline-btn:hover{background:rgba(143,194,186,.16);border-color:var(--blue)}
   @media(max-width:940px){.quick-kline{display:inline-flex}.nav-in{gap:8px!important}.quick-kline span{display:inline}}
   @media(max-width:390px){.quick-kline span{display:none}.quick-kline{padding:8px 9px}}
+
+  /* ---------- Interface settings ---------- */
+  .ui-settings-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);background:rgba(222,234,236,.04);color:var(--text2);border-radius:10px;padding:7px 10px;font:500 10.5px Geist,"PingFang SC",sans-serif;letter-spacing:.01em;white-space:nowrap;cursor:pointer;transition:border-color .2s var(--ease),color .2s var(--ease),background .2s var(--ease)}
+  .ui-settings-btn:hover,.ui-settings-btn:focus-visible{border-color:var(--blue);color:var(--blue);background:rgba(143,194,186,.10);outline:none}
+  .ui-settings-btn svg{width:14px;height:14px;flex:none}
+  .ui-settings-backdrop{position:fixed;inset:0;z-index:310;background:rgba(0,0,0,.64);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .25s var(--ease),visibility .25s var(--ease)}
+  .ui-settings-backdrop.on{opacity:1;visibility:visible}
+  .ui-settings-panel{position:fixed;top:0;right:0;z-index:320;width:min(390px,100vw);height:100dvh;display:flex;flex-direction:column;background:linear-gradient(180deg,#0b0d0f 0%,#080a0b 100%);border-left:1px solid var(--line);box-shadow:-24px 0 80px rgba(0,0,0,.55);transform:translateX(102%);transition:transform .32s var(--ease);overflow:hidden}
+  .ui-settings-panel.on{transform:translateX(0)}
+  .ui-settings-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 22px 18px;border-bottom:1px solid var(--line2)}
+  .ui-settings-head b{font-size:14px;font-weight:600;letter-spacing:-.01em}.ui-settings-head span{display:block;font:9px "Geist Mono",monospace;letter-spacing:.12em;color:var(--text3);margin-top:5px}
+  .ui-settings-close{width:30px;height:30px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--text2);font-size:17px;cursor:pointer}.ui-settings-close:hover{color:var(--text);border-color:var(--line-strong)}
+  .ui-settings-body{padding:18px 22px 26px;overflow:auto;flex:1}.ui-setting-block{padding:17px 0;border-bottom:1px solid var(--line2)}.ui-setting-block:first-child{padding-top:4px}.ui-setting-block:last-child{border-bottom:0}
+  .ui-setting-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:10px}.ui-setting-label small{font:9px "Geist Mono",monospace;color:var(--text3);letter-spacing:.08em;font-weight:400}
+  .ui-setting-copy{font-size:11px;color:var(--text3);line-height:1.65;margin-bottom:12px}
+  .ui-setting-select{width:100%;border:1px solid var(--line);background:#111417;color:var(--text);border-radius:9px;padding:9px 11px;font:12px Geist,"PingFang SC",sans-serif;outline:none}.ui-setting-select:focus{border-color:var(--blue)}
+  .ui-segment{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:4px;background:#080a0b;border:1px solid var(--line);border-radius:10px}.ui-segment button{border:0;border-radius:7px;background:transparent;color:var(--text3);padding:8px 9px;font:11px Geist,"PingFang SC",sans-serif;cursor:pointer}.ui-segment button.on{background:rgba(143,194,186,.13);color:var(--text);box-shadow:inset 0 0 0 1px rgba(143,194,186,.20)}
+  .ui-switch-row{display:flex;align-items:center;justify-content:space-between;gap:18px;cursor:pointer}.ui-switch-row>span{font-size:12px;color:var(--text2);line-height:1.45}.ui-switch-row small{display:block;font-size:10.5px;color:var(--text3);margin-top:3px;line-height:1.45}.ui-switch{position:relative;width:38px;height:22px;flex:none}.ui-switch input{position:absolute;opacity:0;pointer-events:none}.ui-switch i{position:absolute;inset:0;border-radius:99px;background:#252a2d;border:1px solid var(--line);transition:.2s}.ui-switch i:after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#9aa5a7;transition:.2s}.ui-switch input:checked+i{background:rgba(143,194,186,.22);border-color:rgba(143,194,186,.45)}.ui-switch input:checked+i:after{left:19px;background:#d8f3ec}
+  .ui-settings-state{padding:13px 14px;border:1px solid rgba(143,194,186,.22);background:rgba(143,194,186,.06);border-radius:11px;font-size:11px;line-height:1.65;color:var(--text2)}.ui-settings-state b{color:var(--text);font-weight:600}
+  .ui-settings-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 22px calc(18px + env(safe-area-inset-bottom));border-top:1px solid var(--line2)}.ui-settings-foot button{border-radius:9px;padding:9px 13px;font:11px Geist,"PingFang SC",sans-serif;cursor:pointer}.ui-reset{border:1px solid var(--line);background:transparent;color:var(--text3)}.ui-reset:hover{color:var(--text);border-color:var(--line-strong)}.ui-done{border:1px solid rgba(143,194,186,.36);background:rgba(143,194,186,.12);color:var(--text)}
+  body.ui-settings-open{overflow:hidden}
+  body[data-ui-density="compact"] .workspace-panel>section{padding:34px 0!important}
+  body[data-ui-density="compact"] .workspace-panel .sec-head{margin-bottom:22px}
+  body[data-ui-density="compact"] .lv-kpi{gap:8px}body[data-ui-density="compact"] .lv-kpi>div{padding:12px 13px}
+  body[data-ui-density="compact"] .card .pad{padding-top:16px!important;padding-bottom:16px!important}
+  body[data-ui-motion="reduced"] *,body[data-ui-motion="reduced"] *::before,body[data-ui-motion="reduced"] *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  body[data-ui-motion="reduced"] .rv,body[data-ui-motion="reduced"] .dom-reveal{opacity:1!important;transform:none!important}
+  @media(max-width:940px){.ui-settings-btn span{display:none}.ui-settings-btn{padding:8px 9px}}@media(max-width:390px){.ui-settings-panel{width:100vw}}
 </style></head>
-<body><script>(function(){var P="https://thoughts-call-favourites-contract.trycloudflare.com";if(location.hostname.endsWith("github.io")){var f=window.fetch.bind(window);window.fetch=function(u,o){if(typeof u==="string"&&u.indexOf("/api/")===0)u=P+u;return f(u,o);};}})();</script>
+<body><script>window.__bunniesCloudProxy="https://thoughts-call-favourites-contract.trycloudflare.com";</script><script>(function(){if(location.hostname.endsWith("github.io")){var f=window.fetch.bind(window);window.fetch=function(u,o){if(typeof u==="string"&&u.indexOf("/api/")===0)u=window.__bunniesCloudProxy+u;return f(u,o);};}})();</script>
 <nav>
   <div class="nav-in">
     <div class="brand">
@@ -817,12 +845,30 @@
     <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 2.5v15M15 2.5v15M2.5 6h5v8h-5zM12.5 4.5h5v11h-5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
     <span>K线</span>
   </a>
+  
+  <button class="ui-settings-btn" id="uiSettingsBtn" type="button" aria-label="打开界面设置" aria-controls="uiSettingsPanel" aria-expanded="false" data-ui-settings="1">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Z" stroke="currentColor" stroke-width="1.6"/><path d="M19.4 13.4a7.8 7.8 0 0 0 .05-1.4 7.8 7.8 0 0 0-.05-1.4l1.65-1.28-1.9-3.3-1.95.79a8 8 0 0 0-2.42-1.4L14.45 3h-3.8l-.33 2.4a8 8 0 0 0-2.42 1.4l-1.95-.79-1.9 3.3 1.65 1.28a7.8 7.8 0 0 0-.05 1.4c0 .48.02.95.05 1.4l-1.65 1.28 1.9 3.3 1.95-.79a8 8 0 0 0 2.42 1.4l.33 2.4h3.8l.33-2.4a8 8 0 0 0 2.42-1.4l1.95.79 1.9-3.3-1.65-1.28Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></svg><span>界面</span>
+  </button>
   <button class="dom-menu-btn" id="domMenuBtn" type="button">Menu</button>
   </div>
 
 <div class="scroll-progress" id="scrollProgress"></div></nav>
 <div class="dom-menu" id="domMenu" aria-hidden="true"><div class="dom-menu-in"><div class="dom-menu-head"><b>BUNNIES / MENU</b><button class="dom-menu-close" id="domMenuClose">Close</button></div><div class="dom-menu-links"><button data-workspace="dashboard"><span>01</span>驾驶舱</button><button data-workspace="analysis"><span>02</span>个股研判</button><button data-workspace="research"><span>03</span>策略研究</button><button data-workspace="research" data-workspace-section="charts"><span>03A</span>K线行情</button><button data-workspace="system"><span>04</span>数据与技能</button><button data-workspace="docs"><span>05</span>方法说明</button></div><div class="dom-menu-foot">INDEPENDENT QUANT RESEARCH · CHINA A-SHARES<br>10 万模拟研究账户 · 未经审批不执行真实交易</div></div></div>
 
+
+
+<div class="ui-settings-backdrop" id="uiSettingsBackdrop" aria-hidden="true"></div>
+<aside class="ui-settings-panel" id="uiSettingsPanel" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="uiSettingsTitle" data-ui-settings="1">
+  <div class="ui-settings-head"><div><b id="uiSettingsTitle">界面设置</b><span>INTERFACE PREFERENCES</span></div><button class="ui-settings-close" id="uiSettingsClose" type="button" aria-label="关闭界面设置">×</button></div>
+  <div class="ui-settings-body">
+    <div class="ui-setting-block"><div class="ui-setting-label">默认进入 <small>DEFAULT VIEW</small></div><div class="ui-setting-copy">下次打开页面时优先进入的工作区。</div><select class="ui-setting-select" id="uiDefaultWorkspace"><option value="dashboard">驾驶舱 / 账户与今日方案</option><option value="analysis">个股研判 / 因子与价值审查</option><option value="research">策略研究 / 图表与回测</option><option value="system">数据与技能 / 数据健康与编排</option><option value="docs">方法说明 / 口径与限制</option></select></div>
+    <div class="ui-setting-block"><div class="ui-setting-label">信息密度 <small>DENSITY</small></div><div class="ui-segment" role="radiogroup" aria-label="信息密度"><button type="button" data-ui-density="comfortable">标准</button><button type="button" data-ui-density="compact">紧凑</button></div></div>
+    <div class="ui-setting-block"><div class="ui-setting-label">界面动效 <small>MOTION</small></div><div class="ui-segment" role="radiogroup" aria-label="界面动效"><button type="button" data-ui-motion="full">完整</button><button type="button" data-ui-motion="reduced">简洁</button></div></div>
+    <div class="ui-setting-block"><label class="ui-switch-row" for="uiRemember"><span>记住上次位置<small>保存工作区、子页面与当前标的。</small></span><span class="ui-switch"><input id="uiRemember" type="checkbox"><i></i></span></label></div>
+    <div class="ui-setting-block"><div class="ui-setting-label">当前状态 <small>SESSION</small></div><div class="ui-settings-state" id="uiSettingsState">正在读取界面状态…</div></div>
+  </div>
+  <div class="ui-settings-foot"><button class="ui-reset" id="uiSettingsReset" type="button">恢复默认</button><button class="ui-done" id="uiSettingsDone" type="button">完成</button></div>
+</aside>
 
 <header><svg class="dom-frame" viewBox="0 0 1200 740" preserveAspectRatio="none" aria-hidden="true"><path d="M20 20 H780 C900 20 1000 72 1060 170 C1115 260 1095 350 1103 445 C1114 590 1010 720 830 720 H20 Z"></path></svg><div class="dom-rails" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="wrap">
@@ -3579,22 +3625,74 @@ live_order: forbidden
   var WORKSPACE_MAP={dashboard:['live','indices','plan'],analysis:['analysis','aihf','berkshire','openalice'],research:['factors','charts','models','nnpick','compare','backtest','portbt','champion','slab','paper'],system:['skilldata','vibeskills'],docs:['process','datasource']};
   var WORKSPACE_META={dashboard:'10 万模拟账户 · 研究模式',analysis:'选择股票后查看联合研判',research:'模型、图表、回测与策略实验',system:'数据健康、技能图谱与统一编排',docs:'研究流程、计算口径与限制'};
   var WORKSPACE_ACTIVE='dashboard';
+  var UI_PREF_KEY = 'bunnies_ui_prefs_v1';
+  var UI_DEFAULTS = { defaultWorkspace:'dashboard', density:'comfortable', motion:'full', remember:true, lastWorkspace:'dashboard', lastSection:null };
+  var UI_PREFS = (function(){ try { var raw = localStorage.getItem(UI_PREF_KEY); var o = raw ? JSON.parse(raw) : {}; return Object.assign({}, UI_DEFAULTS, o || {}); } catch(e){ return Object.assign({}, UI_DEFAULTS); } })();
+  var UI_WORKSPACE_LABEL = { dashboard:'驾驶舱', analysis:'个股研判', research:'策略研究', system:'数据与技能', docs:'方法说明' };
+  function uiSavePrefs(){ try { localStorage.setItem(UI_PREF_KEY, JSON.stringify(UI_PREFS)); } catch(e){} }
+  function uiApplyPrefs(){
+    document.body.setAttribute('data-ui-density', UI_PREFS.density === 'compact' ? 'compact' : 'comfortable');
+    document.body.setAttribute('data-ui-motion', UI_PREFS.motion === 'reduced' ? 'reduced' : 'full');
+    Array.prototype.forEach.call(document.querySelectorAll('[data-ui-density]'), function(b){ var on = b.getAttribute('data-ui-density') === UI_PREFS.density; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-ui-motion]'), function(b){ var on = b.getAttribute('data-ui-motion') === UI_PREFS.motion; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); });
+    var sel=$('uiDefaultWorkspace'); if(sel) sel.value = UI_PREFS.defaultWorkspace;
+    var rem=$('uiRemember'); if(rem) rem.checked = !!UI_PREFS.remember;
+    uiSyncSettingsSummary();
+  }
+  function uiRememberLocation(key, section){
+    if(UI_PREFS.remember){ UI_PREFS.lastWorkspace = key; UI_PREFS.lastSection = section || null; uiSavePrefs(); }
+    uiSyncSettingsSummary(key, section);
+  }
+  function uiSyncSettingsSummary(key, section){
+    var el=$('uiSettingsState'); if(!el) return;
+    var k=key||WORKSPACE_ACTIVE||UI_PREFS.defaultWorkspace;
+    var sec=section||UI_PREFS.lastSection;
+    var secLabel='';
+    if(sec){ var target=document.getElementById(sec); var h=target&&target.querySelector('h2'); secLabel=h?h.textContent:sec; }
+    var cur=state&&state.cur&&state.cur.s;
+    el.innerHTML='<b>'+vibeEsc(UI_WORKSPACE_LABEL[k]||k)+'</b> · '+(secLabel?vibeEsc(secLabel):'默认子页面')+(cur?'<br>当前标的：'+vibeEsc(cur.name)+' '+vibeEsc(cur.code):'')+'<br><span style="color:var(--text3)">导航状态会写入 URL，可直接分享或刷新恢复。</span>';
+  }
+  function uiSettingsSet(open){
+    var panel=$('uiSettingsPanel'), back=$('uiSettingsBackdrop'), btn=$('uiSettingsBtn');
+    if(!panel) return;
+    panel.classList.toggle('on', !!open); if(back) back.classList.toggle('on', !!open);
+    panel.setAttribute('aria-hidden', String(!open)); if(btn) btn.setAttribute('aria-expanded', String(!!open));
+    document.body.classList.toggle('ui-settings-open', !!open);
+    if(open) { domMenuSet(false); setTimeout(function(){ var first=panel.querySelector('button,select,input'); if(first) first.focus(); }, 80); }
+  }
+  function initUiSettings(){
+    var openBtn=$('uiSettingsBtn'), panel=$('uiSettingsPanel'), closeBtn=$('uiSettingsClose'), back=$('uiSettingsBackdrop'), done=$('uiSettingsDone'), reset=$('uiSettingsReset');
+    if(openBtn) openBtn.addEventListener('click', function(){ uiSettingsSet(true); });
+    if(closeBtn) closeBtn.addEventListener('click', function(){ uiSettingsSet(false); });
+    if(done) done.addEventListener('click', function(){ uiSettingsSet(false); });
+    if(back) back.addEventListener('click', function(){ uiSettingsSet(false); });
+    Array.prototype.forEach.call(panel ? panel.querySelectorAll('[data-ui-density]') : [], function(b){ b.addEventListener('click', function(){ UI_PREFS.density=b.getAttribute('data-ui-density'); uiApplyPrefs(); uiSavePrefs(); }); });
+    Array.prototype.forEach.call(panel ? panel.querySelectorAll('[data-ui-motion]') : [], function(b){ b.addEventListener('click', function(){ UI_PREFS.motion=b.getAttribute('data-ui-motion'); uiApplyPrefs(); uiSavePrefs(); }); });
+    var sel=$('uiDefaultWorkspace'); if(sel) sel.addEventListener('change', function(){ UI_PREFS.defaultWorkspace=this.value; uiSavePrefs(); uiSyncSettingsSummary(); });
+    var rem=$('uiRemember'); if(rem) rem.addEventListener('change', function(){ UI_PREFS.remember=this.checked; if(!this.checked){ UI_PREFS.lastWorkspace=UI_PREFS.defaultWorkspace; UI_PREFS.lastSection=null; } uiSavePrefs(); uiSyncSettingsSummary(); });
+    if(reset) reset.addEventListener('click', function(){ UI_PREFS=Object.assign({},UI_DEFAULTS); uiSavePrefs(); uiApplyPrefs(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ uiSettingsSet(false); domMenuSet(false); } });
+    uiApplyPrefs();
+  }
   function workspaceSectionShow(key,sectionId,scroll){
     var panel=$('workspace-'+key);if(!panel)return;var secs=Array.prototype.slice.call(panel.children).filter(function(x){return x.tagName==='SECTION'&&x.id;});if(!secs.length)return;
     var target=secs.filter(function(x){return x.id===sectionId;})[0]||secs[0];secs.forEach(function(x){x.classList.toggle('workspace-active',x===target);});
-    Array.prototype.forEach.call(document.querySelectorAll('#workspaceSubnav [data-workspace-jump]'),function(b){b.classList.toggle('on',b.getAttribute('data-workspace-jump')===target.id);});
+    Array.prototype.forEach.call(document.querySelectorAll('#workspaceSubnav [data-workspace-jump]'),function(b){var on=b.getAttribute('data-workspace-jump')===target.id;b.classList.toggle('on',on);b.setAttribute('aria-selected',String(on));});
     Array.prototype.forEach.call(target.querySelectorAll('.rv'),function(x){x.classList.add('in');});setTimeout(function(){window.dispatchEvent(new Event('resize'));},80);
-    if(scroll)target.scrollIntoView({behavior:'smooth',block:'start'});
+    uiRememberLocation(key,target.id);
+    try{history.replaceState(null,'',location.pathname+location.search+'#'+target.id);}catch(e){}
+    var sub=$('workspaceSubnav'),activeSub=sub&&sub.querySelector('.on');if(activeSub&&sub.scrollWidth>sub.clientWidth)activeSub.scrollIntoView({behavior:UI_PREFS.motion==='reduced'?'auto':'smooth',block:'nearest',inline:'center'});
+    if(scroll)target.scrollIntoView({behavior:UI_PREFS.motion==='reduced'?'auto':'smooth',block:'start'});
   }
   function workspaceShow(key,scroll,sectionId){
     if(!WORKSPACE_MAP[key])key='dashboard';WORKSPACE_ACTIVE=key;
-    Object.keys(WORKSPACE_MAP).forEach(function(k){var p=$('workspace-'+k);if(p)p.classList.toggle('is-active',k===key);});
-    Array.prototype.forEach.call(document.querySelectorAll('[data-workspace]'),function(b){b.classList.toggle('on',b.getAttribute('data-workspace')===key);});
+    Object.keys(WORKSPACE_MAP).forEach(function(k){var p=$('workspace-'+k);if(p){p.classList.toggle('is-active',k===key);p.setAttribute('role','tabpanel');p.setAttribute('aria-hidden',String(k!==key));}});
+    Array.prototype.forEach.call(document.querySelectorAll('[data-workspace]'),function(b){var on=b.getAttribute('data-workspace')===key;b.classList.toggle('on',on);if(b.classList.contains('workspace-tab')){b.setAttribute('role','tab');b.setAttribute('aria-selected',String(on));}});
     var panel=$('workspace-'+key),sub=$('workspaceSubnav'),ctx=$('workspaceContext');
-    if(sub){var secs=panel?Array.prototype.slice.call(panel.children).filter(function(x){return x.tagName==='SECTION'&&x.id;}):[];sub.innerHTML=secs.map(function(sec){var h=sec.querySelector('h2');return h?'<button data-workspace-jump="'+vibeEsc(sec.id)+'">'+vibeEsc(h.textContent)+'</button>':'';}).join('');Array.prototype.forEach.call(sub.querySelectorAll('[data-workspace-jump]'),function(b){b.addEventListener('click',function(){workspaceSectionShow(key,b.getAttribute('data-workspace-jump'),true);});});}
+    if(sub){var secs=panel?Array.prototype.slice.call(panel.children).filter(function(x){return x.tagName==='SECTION'&&x.id;}):[];sub.setAttribute('role','tablist');sub.setAttribute('aria-label','工作区子页面');sub.innerHTML=secs.map(function(sec){var h=sec.querySelector('h2');return h?'<button role="tab" aria-selected="false" data-workspace-jump="'+vibeEsc(sec.id)+'">'+vibeEsc(h.textContent)+'</button>':'';}).join('');Array.prototype.forEach.call(sub.querySelectorAll('[data-workspace-jump]'),function(b){b.addEventListener('click',function(){workspaceSectionShow(key,b.getAttribute('data-workspace-jump'),true);});});}
     if(ctx){var cur=state&&state.cur&&state.cur.s;ctx.textContent=cur?(cur.name+' · '+cur.code+' · '+WORKSPACE_META[key]):WORKSPACE_META[key];}
     workspaceSectionShow(key,sectionId,false);
-    if(scroll&&$('workspace'))$('workspace').scrollIntoView({behavior:'smooth',block:'start'});
+    if(scroll&&$('workspace'))$('workspace').scrollIntoView({behavior:UI_PREFS.motion==='reduced'?'auto':'smooth',block:'start'});
   }
   function enhanceDashboardDetails(){
     var live=$('live');if(!live||$('liveDetails'))return;
@@ -3637,8 +3735,12 @@ live_order: forbidden
     document.addEventListener('click',function(e){var b=e.target.closest?e.target.closest('[data-workspace]'):null;if(!b)return;e.preventDefault();workspaceShow(b.getAttribute('data-workspace'),true,b.getAttribute('data-workspace-section'));domMenuSet(false);});
     if($('domMenuBtn'))$('domMenuBtn').addEventListener('click',function(){domMenuSet(true);});
     if($('domMenuClose'))$('domMenuClose').addEventListener('click',function(){domMenuSet(false);});
-    var hash=(location.hash||'').replace('#',''),initial='dashboard',initialSection=null;
+    initUiSettings();
+    var hash=(location.hash||'').replace('#',''),initial=UI_PREFS.defaultWorkspace,initialSection=null;
+    if(!WORKSPACE_MAP[initial])initial='dashboard';
     if(hash&&hash!=='workspace'){Object.keys(WORKSPACE_MAP).some(function(k){var p=$('workspace-'+k);if(p&&p.querySelector('#'+hash)){initial=k;initialSection=hash;return true;}return false;});}
+    else if(UI_PREFS.remember&&WORKSPACE_MAP[UI_PREFS.lastWorkspace]){initial=UI_PREFS.lastWorkspace;initialSection=UI_PREFS.lastSection;}
+    var usp=new URLSearchParams(location.search);if(usp.has('kline')){initial='research';initialSection='charts';}if(usp.has('orchestrator')){initial='system';initialSection='vibeskills';}
     workspaceShow(initial,false,initialSection);
   }
   function init(){
