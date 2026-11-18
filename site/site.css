@@ -15,7 +15,8 @@
   --up:#f0705f;--down:#3fbf8f;            /* A 股惯例：红涨绿跌 */
   --radius:14px;--radius-sm:9px;--max:1200px;
   --sans:Geist,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
-  --mono:"Geist Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+  /* 等宽字体后面必须跟中文字体，否则 Windows 会用宋体渲染混在其中的汉字 */
+  --mono:"Geist Mono",ui-monospace,"SFMono-Regular",Consolas,"PingFang SC","Microsoft YaHei","Noto Sans SC",monospace;
   --ease:cubic-bezier(.2,.7,0,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -267,3 +268,37 @@ td.num{font-family:var(--mono)}
   .panel{padding:18px}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+
+/* ================= 字号体系 v4 =================
+ * 只用这几档：12 标签 · 13 辅助 · 14 导航/表格 · 16 正文 · 18 导语 · 20 小标题
+ * 标题：区块 h2 ≈36 · 内页 h1 ≈44 · 首页 h1 ≈56（桌面端）
+ * 中文标题不用负字距。
+ */
+:root{--fs-xs:12px;--fs-sm:13px;--fs-ui:14px;--fs-body:16px;--fs-lead:18px;--fs-h3:20px;
+  --fs-h2:clamp(1.625rem,2.5vw,2.25rem);--fs-h1:clamp(2rem,3.4vw,2.75rem);--fs-hero:clamp(2.25rem,4.2vw,3.5rem)}
+body{font-size:var(--fs-body);line-height:1.75}
+h1,h2,h3,.h2{letter-spacing:0}
+.hero h1{font-size:var(--fs-hero);line-height:1.2;letter-spacing:0}
+.page-hero h1{font-size:var(--fs-h1);line-height:1.25;letter-spacing:0}
+.sec-head h2,.h2,.strategy h2{font-size:var(--fs-h2);line-height:1.3;letter-spacing:0}
+.cta h2{font-size:clamp(1.375rem,2vw,1.75rem)}
+.lead,.strategy .lead{font-size:var(--fs-lead);line-height:1.75}
+.card h3,.steps b,.panel-head h3{font-size:var(--fs-h3);line-height:1.4}
+.panel-head h3{font-size:17px}
+.card p,.steps p,.def > div,.rules li,.callout,.checklist li,.faq details p,.sec-head p,.cta p,.attr-row{font-size:var(--fs-body)}
+.faq summary{font-size:17px}
+.kv dt,.metric span,.note,.chips span,.footer-grid h4,.disclaimer,.panel-head time{font-size:var(--fs-sm)}
+.kv dd,.nav-links a,.btn,.toc a,.chip,table,.panel-foot,.status-line,.sec-head .more{font-size:var(--fs-ui)}
+thead th{font-size:var(--fs-sm)}
+.card .idx,.card .tags,.kicker .en{font-size:var(--fs-xs)}
+.kicker{font-size:var(--fs-ui)}
+.metric b{font-size:22px}
+@media(max-width:760px){
+  body{font-size:15px}
+  .card p,.steps p,.def > div,.rules li,.callout,.checklist li,.faq details p,.sec-head p,.cta p{font-size:15px}
+  .lead,.strategy .lead{font-size:16px}
+  .card h3,.steps b{font-size:18px}
+  .faq summary{font-size:16px}
+  .metric b{font-size:18px}
+  .attr-row{font-size:14px}
+}
