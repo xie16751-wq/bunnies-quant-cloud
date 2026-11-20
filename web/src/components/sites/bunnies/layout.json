@@ -1,0 +1,65 @@
+{
+  "order": [
+    {
+      "scene": true
+    },
+    {
+      "name": "Header"
+    },
+    {
+      "anchor": "i3owk"
+    },
+    {
+      "name": "Hero"
+    },
+    {
+      "name": "Product"
+    },
+    {
+      "name": "Partners"
+    },
+    {
+      "anchor": "i3owk-2-3"
+    },
+    {
+      "name": "Features"
+    },
+    {
+      "name": "KeyFeatures"
+    },
+    {
+      "anchor": "i3owk-2-2-3-2"
+    },
+    {
+      "name": "Services"
+    },
+    {
+      "name": "Benefits"
+    },
+    {
+      "anchor": "i3owk-2-2-3"
+    },
+    {
+      "name": "Testimonials"
+    },
+    {
+      "name": "Pricing"
+    },
+    {
+      "anchor": "i3owk-2-2-2"
+    },
+    {
+      "name": "Footer"
+    },
+    {
+      "anchor": "i3owk-2-2-2-2"
+    }
+  ],
+  "sectionIdByHash": {
+    "anchor-hero": "i84ba",
+    "product-section": "ilwyn",
+    "features-section": "ilwyn-2-2-3",
+    "solutions-section": "ilwyn-2-2-4",
+    "pricing-section": "ilwyn-2-2-2-3"
+  }
+}

@@ -1,0 +1,45 @@
+/* Self-hosted DM Sans (variable, latin + latin-ext) instead of Google Fonts. */
+@font-face {
+  font-family: "DM Sans";
+  src: url("/sites/bunnies/fonts/dm-sans-latin-1.woff2") format("woff2");
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("/sites/bunnies/fonts/dm-sans-latin-0.woff2") format("woff2");
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Lenis (from the source's website-base.css). */
+html.lenis, html.lenis body { height: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
+/* Builder links rendered on non-anchor elements. */
+[data-link] { cursor: pointer; }
+[data-link]:focus-visible { outline: 2px solid #a5edee; outline-offset: 3px; }
+
+/* Content appears once the 3D scene is ready, as on the source. */
+.fof-content { opacity: 0; transition: opacity .3s; }
+html.fof-ready .fof-content { opacity: 1; }
+
+/* Loading screen (builder logo and badge omitted). */
+.fof-loader {
+  position: fixed; inset: 0; z-index: 1000000; display: grid; place-items: center;
+  background: #000735; transition: opacity .3s, visibility .3s;
+}
+.fof-loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+.fof-ring-wrap { position: relative; width: 80px; height: 80px; display: grid; place-items: center; }
+.fof-ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: conic-gradient(#ffffff calc(var(--p) * 1%), rgba(255,255,255,.06) 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+}
+.fof-ring-wrap span { position: relative; font-family: "DM Sans", sans-serif; font-size: 12px; color: #fff; }
