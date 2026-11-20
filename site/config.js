@@ -5,7 +5,7 @@
  * snapshot：网站上展示的模拟账户与审批状态快照（手工更新，来源见 work/paper/reports/）。
  */
 window.BUNNIES_CONFIG = {
-  apiBase: "https://quantitative-breaks-gauge-greatly.trycloudflare.com",
+  apiBase: "https://sum-pilot-necessary-waiver.trycloudflare.com",
   snapshot: {
     asOf: "2026-11-16",
     initialCapital: 100000,
