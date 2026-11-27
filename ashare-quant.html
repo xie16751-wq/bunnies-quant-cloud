@@ -971,7 +971,7 @@ h1,h2,h3,.sec-head h2,header h1{font-family:"Helvetica Now Display","PingFang SC
     <div class="sec-head center rv">
       <div class="eyebrow" style="margin-bottom:14px">LIVE PAPER TRADING · 10 万元 · 2026 Q4</div>
       <h2>模拟实盘 · 季度跟踪</h2>
-      <p>10 万元模拟研究账户已切换到「每日参与 + 资本保全」模式：每个交易日轮换一笔小仓位，单笔最多使用账户权益的 8%，优先选择综合评分较高且能买满 100 股的股票；保留 T+1、涨跌停、ATR 止损和哈希链账本。</p>
+      <p>10 万元模拟研究账户已切换到「每日参与 + 资本保全」模式：每个交易日轮换一篮子仓位（默认 3 只，合计最多使用账户权益的 48%），优先选择综合评分较高且能买满 100 股的股票；保留 T+1、涨跌停、ATR 止损和哈希链账本。</p>
     </div>
     <div class="card">
       <div class="pad">
@@ -5908,6 +5908,7 @@ live_order: forbidden
     var paperOverride = !!(tradingPolicy && tradingPolicy.paperOverride);
     var dailyParticipation = !!(tradingPolicy && tradingPolicy.dailyParticipation);
     var paperCap = Number((dailyParticipation ? tradingPolicy.dailyProbeExposure : (tradingPolicy && tradingPolicy.belowMAExposure)) || 0.08);
+    var probeBasket = Number((tradingPolicy && tradingPolicy.dailyProbeBasket) || 3);
     var healthTxt = health ? ("IC " + (health.ic === null || health.ic === undefined ? "—" : Number(health.ic).toFixed(3)) + " · 命中 " + (health.hit === null || health.hit === undefined ? "—" : (Number(health.hit)*100).toFixed(0) + "%") + " · " + (health.ok ? "正常" : (dailyParticipation ? "每日参与继续" : (paperOverride ? "降仓继续" : "暂停开仓")))) : "暂无数据";
     var riskTxt = risk ? ("账户回撤 " + (Number(risk.drawdown||0)*100).toFixed(2) + "% · 风控仓位 " + Math.round(Number(risk.rawExposureCap !== undefined ? risk.rawExposureCap : (risk.exposureCap||0))*100) + "% / 每日参与 " + Math.round(Number(risk.participationFloor||0)*100) + "%") : "暂无数据";
     var regimeTxt = reg ? ("沪深300 " + (reg.on ? "在 MA" + reg.ma + " 上方" : "跌破 MA" + reg.ma) + "（" + Number(reg.close||0).toFixed(2) + "）") : "择时未启用";
@@ -5915,6 +5916,7 @@ live_order: forbidden
     var paperOverride = !!(tradingPolicy && tradingPolicy.paperOverride);
     var dailyParticipation = !!(tradingPolicy && tradingPolicy.dailyParticipation);
     var paperCap = Number((dailyParticipation ? tradingPolicy.dailyProbeExposure : (tradingPolicy && tradingPolicy.belowMAExposure)) || 0.08);
+    var probeBasket = Number((tradingPolicy && tradingPolicy.dailyProbeBasket) || 3);
     window.__bunniesPaperOverride = paperOverride;
     window.__bunniesDailyParticipation = dailyParticipation;
     window.__bunniesPaperCap = paperCap;
@@ -5923,7 +5925,7 @@ live_order: forbidden
       '<div class="lv-row"><span class="n">账户回撤</span><span style="color:var(--text2)">' + riskTxt + '</span></div>' +
       '<div class="lv-row"><span class="n">模型健康度</span><span style="color:' + (health && !health.ok ? "var(--amber)" : "var(--green)") + '">' + healthTxt + '</span></div>' +
       '<div class="lv-row"><span class="n">模型审批</span><span style="color:' + (approval && !approval.approved ? "var(--amber)" : "var(--green)") + '">' + (approval ? (approval.approved ? '已通过' : ('未通过 · ' + (approval.passedCandidates||0) + '/' + (approval.candidateCount||0) + ' 通过 · ' + (approval.conditionalCandidates||0) + ' 条件')) : '暂无审批数据') + '</span></div>' +
-      '<div class="lv-row"><span class="n">交易状态</span><span style="color:' + (dailyParticipation ? "var(--blue)" : (paperOverride ? "var(--blue)" : ((health && !health.ok) || (reg && !reg.on) ? "var(--amber)" : "var(--green)"))) + '">' + (dailyParticipation ? ("每日参与 · 单笔≤" + Math.round(paperCap*100) + "% · T+1 轮换") : (paperOverride ? ("研究仓自动交易 · 总仓位≤" + Math.round(paperCap*100) + "%") : (((health && !health.ok) || (reg && !reg.on)) ? "暂停新开仓，允许风控离场" : "正常"))) + '</span></div></div>';
+      '<div class="lv-row"><span class="n">交易状态</span><span style="color:' + (dailyParticipation ? "var(--blue)" : (paperOverride ? "var(--blue)" : ((health && !health.ok) || (reg && !reg.on) ? "var(--amber)" : "var(--green)"))) + '">' + (dailyParticipation ? ("每日参与 · " + probeBasket + "只篮子 · 合计≤" + Math.round(paperCap*100) + "%") : (paperOverride ? ("研究仓自动交易 · 总仓位≤" + Math.round(paperCap*100) + "%") : (((health && !health.ok) || (reg && !reg.on)) ? "暂停新开仓，允许风控离场" : "正常"))) + '</span></div></div>';
     var wf = d && d.walkforward;
     if(wf && wf.strategies){
       grid += '<div class="lv-card"><h4>Walk-forward 样本外 2026</h4>' +
@@ -5998,9 +6000,9 @@ live_order: forbidden
       }).join("") : '<div class="empty-note">暂无数据</div>') + '</div>';
     var liveGate = paperOverride || (!!(reg && reg.on) && !!(health && health.ok) && !!(approval && approval.approved) && Number((risk && risk.exposureCap) || 0) > 0);
     window.__bunniesLiveGate = liveGate; window.__bunniesPaperOverride = paperOverride; window.__bunniesPaperCap = paperCap;
-    window.__bunniesGateReason = dailyParticipation ? ("每日参与 · 单笔≤" + Math.round(paperCap*100) + "% · T+1 轮换") : (paperOverride ? ("模拟研究仓 · 总仓位上限 " + Math.round(paperCap*100) + "%") : (liveGate ? "四道门控通过" : (!(reg && reg.on) ? "沪深300未站上MA20" : (!(health && health.ok) ? "模型健康度未通过" : (!(approval && approval.approved) ? "样本外审批未通过" : "账户回撤预算不足")))));
+    window.__bunniesGateReason = dailyParticipation ? ("每日参与 · " + probeBasket + "只篮子 · 合计≤" + Math.round(paperCap*100) + "%") : (paperOverride ? ("模拟研究仓 · 总仓位上限 " + Math.round(paperCap*100) + "%") : (liveGate ? "四道门控通过" : (!(reg && reg.on) ? "沪深300未站上MA20" : (!(health && health.ok) ? "模型健康度未通过" : (!(approval && approval.approved) ? "样本外审批未通过" : "账户回撤预算不足")))));
     var pg = $("planGate");
-    if(pg){ pg.className = "plan-gate " + ((dailyParticipation || paperOverride) ? "warn" : (liveGate ? "ok" : "warn")); pg.innerHTML = dailyParticipation ? ("每日参与已启用 · 单笔≤" + Math.round(paperCap*100) + "% · T+1 轮换，不绕过涨跌停与 ATR 止损") : (paperOverride ? ("模拟研究仓自动交易 · 可执行仓位受市场与回撤上限约束，总仓位上限 " + Math.round(paperCap*100) + "%") : (liveGate ? "执行评审通过 · 方案仍需人工确认，模拟下单会经过 T+1 与涨跌停约束" : "研究模式 · 市场趋势 / 模型健康度 / 样本外审批尚未全部通过，本页方案不会自动进入模拟成交")); }
+    if(pg){ pg.className = "plan-gate " + ((dailyParticipation || paperOverride) ? "warn" : (liveGate ? "ok" : "warn")); pg.innerHTML = dailyParticipation ? ("每日参与已启用 · " + probeBasket + "只篮子 · 合计≤" + Math.round(paperCap*100) + "% · T+1 轮换，不绕过涨跌停与 ATR 止损") : (paperOverride ? ("模拟研究仓自动交易 · 可执行仓位受市场与回撤上限约束，总仓位上限 " + Math.round(paperCap*100) + "%") : (liveGate ? "执行评审通过 · 方案仍需人工确认，模拟下单会经过 T+1 与涨跌停约束" : "研究模式 · 市场趋势 / 模型健康度 / 样本外审批尚未全部通过，本页方案不会自动进入模拟成交")); }
     var heroLive = document.querySelector(".hero-live");
     if(heroLive){ heroLive.classList.toggle("paused", !liveGate); var heroLabel = heroLive.querySelector(".hl-t"); if(heroLabel) heroLabel.textContent = dailyParticipation ? "模拟实盘 · 每日参与" : (paperOverride ? "模拟实盘 · 研究仓运行" : (liveGate ? "模拟实盘运行中" : "研究模式 · 风控空仓")); }
     $("lvGrid").innerHTML = grid;
@@ -6085,7 +6087,7 @@ live_order: forbidden
     var totalAbs = Math.abs(market) + Math.abs(residual) + Math.abs(feeDrag) || 1;
     var mw = Math.max(2, Math.abs(market)/totalAbs*100), rw = Math.max(2, Math.abs(residual)/totalAbs*100), fw = Math.max(2, Math.abs(feeDrag)/totalAbs*100);
     var verdict = dailyParticipation ? '每日参与 · 持续轮换' : (liveOk ? '允许小仓位恢复交易' : (marketOn ? '模型治理暂停新开仓' : '市场风险关闭，保持空仓'));
-    var why = dailyParticipation ? '每日参与已接管交易节奏：风控报警时仍轮换一笔不超过账户权益 8% 的小仓位，优先选择综合评分较高且能买满 100 股的股票。' :
+    var why = dailyParticipation ? '每日参与已接管交易节奏：风控报警时仍轮换一篮子仓位（默认 3 只，合计不超过账户权益 48%），优先选择综合评分较高且能买满 100 股的股票。' :
       (liveOk ? '四项门控全部通过。初始风险预算仍应限制在 20%，连续 10 个交易日无异常后再逐步提高。' :
       (marketOn ? '当前不是“立刻抄底”环境：模型审批、健康度或账户回撤至少有一项未通过，系统只研究、不新开仓。' : '沪深300 仍在 MA' + (reg ? reg.ma : 20) + ' 下方。此时空仓不是踏空，而是风险预算的一部分。'));
     var stocks = (a.byStock || []).slice().sort(function(x,y){ return x.realizedPnl-y.realizedPnl; }).slice(0,4);
@@ -6124,10 +6126,10 @@ live_order: forbidden
         '</div></div>' +
       '</div>' +
       '<div class="lv-cause" style="margin-top:14px"><div class="lv-panel" style="grid-column:1/-1"><h5>每日参与 + Capital Preservation v2</h5>' +
-        '<div class="lv-cause-row"><span>每日参与</span><span>每个交易日轮换一笔小仓位；单笔最多 8% 权益，按综合评分和可买整手优先</span></div>' +
+        '<div class="lv-cause-row"><span>每日参与</span><span>每个交易日轮换一篮子（默认 3 只，合计≤48% 权益，单只≤16%），按综合评分和可买整手优先</span></div>' +
         '<div class="lv-cause-row"><span>选股方式</span><span>每日参与优先高综合分；原核心策略质量三因子 50% + 稳健因子 50%</span></div>' +
-        '<div class="lv-cause-row"><span>仓位预算</span><span>每日参与单笔≤8% · T+1 轮换 · 原核心策略单票 18% · ATR 单笔风险 1%</span></div>' +
-        '<div class="lv-cause-row"><span>市场闸门</span><span>原核心策略跌破 MA20 停止开仓；每日参与保留 ≤8% 研究小仓，但不绕过 T+1、涨跌停和 ATR 止损</span></div>' +
+        '<div class="lv-cause-row"><span>仓位预算</span><span>每日参与 3 只篮子 · 合计≤48% · 单只≤16% · ATR 单笔风险 3%</span></div>' +
+        '<div class="lv-cause-row"><span>市场闸门</span><span>原核心策略跌破 MA20 停止开仓；每日参与保留 ≤48% 组合篮子，但不绕过 T+1、涨跌停和 ATR 止损</span></div>' +
         '<div class="lv-cause-row"><span>交易纪律</span><span>每日参与持有 1 个交易日即轮换 · ATR 止损优先 · 原策略最短持有 10 天</span></div>' +
         '<div class="lv-cause-row"><span>研究结论</span><span>'+ (d && d.strategyPolicy && d.strategyPolicy.status==='paper-research-only' ? '仅用于模拟研究，真实资金审批仍未通过' : '等待策略报告') +'</span></div>' +
         '<div style="margin-top:10px">' + (d && d.strategyPolicy && d.strategyPolicy.validation && d.strategyPolicy.validation.pools ? Object.keys(d.strategyPolicy.validation.pools).map(function(k){var v=d.strategyPolicy.validation.pools[k];return '<div class="lv-trade-mini"><span>'+k+' 股票池回测<small>扣除换手成本 · 2024–2026</small></span><span>总收益 '+signed(v.total)+' · 超额 '+signed(v.excess)+' · 回撤 '+signed(v.maxDD)+'</span></div>';}).join('') : '') + '</div>' +
